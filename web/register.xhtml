@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang ="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h ="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="resource/css/style1.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
+        <div id = "register-panel">
+            <h:form>
+                <table>
+                    <tr>
+                        <td>User ID </td>
+                        <td><h:inputText id = "registerUserId" value="#{register.registerUserId}" required = "true" label = "User Id" requiredMessage="User Id Required"/></td>
+                        <td><h:message for="registerUserId" styleClass="error" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password </td>
+                        <td><h:inputSecret id = "registerUserPassword" value="#{register.registerPassword}" required = "true" label = "Password" requiredMessage="Password Required"/></td>
+                        <td><h:message for="registerUserPassword" styleClass="error" /></td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td><h:inputSecret id = "registerUserPassword1" value="#{register.registerConfirmPassword}" required = "true" label = "Confirm Password" requiredMessage="Please Confirm your password"/></td>
+                        <td><h:message for="registerUserPassword1" styleClass="error" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "3"><h:selectOneMenu value="#{register.registerRegisterAs}">
+                        <f:selectItems value="#{login.enterAsOptions}" />
+                            </h:selectOneMenu></td>
+                    </tr>
+                
+                    <tr>
+                        <td colspan = "3"><h:commandButton id ="registerNew" value ="Register" action = "#{register.add}"/></td>
+                    </tr>     
+                </table>
+            </h:form>
+        </div>
+    </h:body>
+</html>

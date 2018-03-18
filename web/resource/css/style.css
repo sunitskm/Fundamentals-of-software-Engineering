@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26 Feb, 2018, 5:00:28 AM
+    Author     : Lenovo
+*/
+*{
+    font-family:"Tahoma";
+}
+.error {color:red}
+#login-panel{
+    width: 400px;
+    margin:50px auto;
+
+}
+:focus{
+    outline:none;
+}
+#login-panel table{
+    border: 1px solid #DDD;
+    padding: 50px;
+}
+#login-panel input[type='text'], #login-panel input[type='password']{
+    border: 1px solid #DDD;
+    padding:3px;
+}
+#login-panel input[type='submit']{
+    border: 1px solid #DDD;
+    width:100%;
+    padding:10px;
+    background-color: white;
+    border-radius: 3px;
+    font-size: 15px;
+}
+

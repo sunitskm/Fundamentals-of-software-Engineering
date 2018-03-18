@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang ="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h ="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="resource/css/style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
+        <div id = "login-panel">
+            <h:form>
+                <table>
+                    <tr>
+                        <td>User ID </td> 
+                        <td><h:inputText id = "userId" value="#{login.loginId}" required ="true" label = "User Id" requiredMessage="User Id Required"/></td>
+                        <td colspan="3"><h:message for="userId" styleClass="error" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><h:inputSecret id = "userPassword" value="#{login.loginPassword}" required = "true" label = "Password" requiredMessage="Password Required"/></td>
+                        <td colspan = "3"><h:message for="userPassword" styleClass="error" /></td>
+                    </tr>
+                    <tr>
+                        <td>Type</td><td> <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type">
+                        <f:selectItems value="#{login.enterAsOptions}" />
+                        </h:selectOneMenu></td>
+                    </tr>
+                    <tr>
+                        <td><h:commandButton value ="Login" action ="#{login.checkValidUser}" /> </td>
+                        <td><h:link outcome="register" value="New User? Register" /></td>
+                    </tr>
+                </table>
+            </h:form>
+        </div>
+    </h:body>
+</html>
