@@ -11,34 +11,53 @@ and open the template in the editor.
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="resource/css/style.css"/>
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="resource/css/style.css"/>
     </h:head>
     <h:body style="background-color:#FFFFE9;">
-        <div id = "login-panel">
-            <h:form>
-                <table>
-                    <tr>
-                        <td>User ID </td> 
-                        <td><h:inputText id = "userId" value="#{login.loginId}" required ="true" label = "User Id" requiredMessage="User Id Required"/></td>
-                        <td colspan="3"><h:message for="userId" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><h:inputSecret id = "userPassword" value="#{login.loginPassword}" required = "true" label = "Password" requiredMessage="Password Required"/></td>
-                        <td colspan = "3"><h:message for="userPassword" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Type</td><td> <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type">
-                        <f:selectItems value="#{login.enterAsOptions}" />
-                        </h:selectOneMenu></td>
-                    </tr>
-                    <tr>
-                        <td><h:commandButton value ="Login" action ="#{login.checkValidUser}" /> </td>
-                        <td><h:link outcome="register" value="New User? Register" /></td>
-                    </tr>
-                </table>
-            </h:form>
+        <div class="container">
+            <div class="navbar navbar-default">
+                <div class="navbar-brand">
+                    User Login
+                </div>
+            </div>         
+            <div class="panel">
+                <div class="col-xs-12">
+                    <h:form styleClass="form-horizontal">
+                        <div class="form-group">
+                            <h:outputLabel value="User ID" styleClass="control-label col-sm-10"/>
+                            <div class="col-sm-10">
+                                <h:inputText id = "userId" value="#{login.loginId}" styleClass="form-control" required ="true" label = "User Id" requiredMessage="User Id Required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
+                            <div class="col-sm-10">
+                                <h:inputSecret id = "userPassword" value="#{login.loginPassword}" styleClass="form-control" required = "true" label = "Password" requiredMessage="Password Required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
+                            <div class="col-sm-10">
+                                <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type" styleClass="form-control">
+                                <f:selectItems value="#{login.enterAsOptions}"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <h:commandButton value ="Login" styleClass="form-control" action ="#{login.checkValidUser}" />
+                                <h:link outcome="register" value="New User? Register" />
+                            </div>                             
+                        </div>
+                    </h:form>
+                </div>
+            </div>
         </div>
     </h:body>
 </html>
