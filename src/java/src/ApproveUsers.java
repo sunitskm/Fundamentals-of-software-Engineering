@@ -25,7 +25,7 @@ public class ApproveUsers {
     private List<VoterDetails> list = new ArrayList<VoterDetails>();
     public List<VoterDetails> getList(){
      list = voters.listVoters();
-     return list();
+     return list;
     }
     public void setList(List<VoterDetails> list){
         this.list = list;
