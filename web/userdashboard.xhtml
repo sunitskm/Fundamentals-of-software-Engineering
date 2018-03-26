@@ -6,20 +6,43 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-    <title>Success Page</title>
-</h:head>
-<h:body style="background-color:#FFFFE9;">
-    <f:view>
-        <h2>Work under progress</h2>
-        <p>You have been approved by an Admin. </p>
-        
+<head>
+  <title>User Dashboard</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    
+<body style="background-color:#FFFFE9;">
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Election Management System</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <div class="navbar-form col-xs-5">
         <h:form>
-            <p>
-                <h:commandLink value="Logout" action="login" />
-            </p>
+            <h:inputText value="Search" styleClass="form-control"/>
+            <h:commandButton value ="Enter" styleClass="form-control" action ="#" />
         </h:form>
-    </f:view>
-</h:body>
+    </div>
+    <div class="navbar-brand nav-justified">
+        <a href="login.xhtml">Logout</a>
+    </div>
+    </div>
+</nav>
+  
+<div class="container">
+  
+</div>
+</body>
 </html>
+
 
