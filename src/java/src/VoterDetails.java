@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,7 +21,7 @@ public class VoterDetails {
     private String userZip;
     
     public VoterDetails(){
-        System.out.println("Hello");
+        System.out.println("Inside Voter Details");
     }
 
     public VoterDetails(String uid, String userFirstName, String userLastName, String userEmailId, String userSSN, String userStreetAddress, String userCity, String userState, String userZip) {

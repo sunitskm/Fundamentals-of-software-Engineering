@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,7 +21,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean (name = "approveusers")
 @SessionScoped
-public class ApproveUsers {
+public class ApproveUsers implements Serializable{
     ListVoters voters = new ListVoters();
     private List<VoterDetails> list = new ArrayList<VoterDetails>();
     public List<VoterDetails> getList(){
