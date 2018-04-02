@@ -32,19 +32,19 @@ and open the template in the editor.
                         <div class="form-group">
                             <h:outputLabel value="User ID" styleClass="control-label col-sm-10"/>
                             <div class="col-sm-10">
-                                <h:inputText id = "userId" value="#{login.loginId}" styleClass="form-control" required ="true" label = "User Id" requiredMessage="User Id Required"/>
+                                <h:inputText id = "userId" value="#{login.loginId}" styleClass="form-control col-sm-5" required ="true" label = "User Id" requiredMessage="User Id Required"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
                             <div class="col-sm-10">
-                                <h:inputSecret id = "userPassword" value="#{login.loginPassword}" styleClass="form-control" required = "true" label = "Password" requiredMessage="Password Required"/>
+                                <h:inputSecret id = "userPassword" value="#{login.loginPassword}" styleClass="form-control col-sm-5" required = "true" label = "Password" requiredMessage="Password Required"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
                             <div class="col-sm-10">
-                                <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type" styleClass="form-control">
+                                <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type" styleClass="form-control col-sm-5">
                                 <f:selectItems value="#{login.enterAsOptions}"/>
                                 </h:selectOneMenu>
                             </div>
