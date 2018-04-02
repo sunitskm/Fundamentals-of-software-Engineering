@@ -14,13 +14,26 @@ and open the template in the editor.
         <style>
             .error {color:red}
         </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body style="background-color:#FFFFE9;">
-        <div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Election Management System</a>
+                </div>
+                <div class="navbar-brand">
+                    <a href="login.xhtml">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
             <h1>Please enter the following details</h1>
-        </div>
-        <div>
             <h:form>
                 
                 User Id: <h:outputText id = "userId" value = "#{login.loginId}"/>
