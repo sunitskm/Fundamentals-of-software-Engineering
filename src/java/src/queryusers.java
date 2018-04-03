@@ -99,6 +99,7 @@ public class queryusers{
                     v.setUserState(resultSet.getString(8));
                     v.setUserZip(resultSet.getString(9));  
                     v.setUserApproved(resultSet.getString(11));
+                    v.setUserZip(resultSet.getString(9));   
                     list.add(v);
             } 
         } catch(Exception ex) {

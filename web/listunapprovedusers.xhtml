@@ -5,20 +5,77 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
-    <f:metadata>
-        <f:event type="preRenderView" listener ="#{approveUsers.displayUsers()}"/>
-    </f:metadata>
+    
 <h:head>
-    <title>Admin Dashboard</title>
+    <title>Approve Users</title>
+    <h:outputStylesheet library ="css" name="style2.css" />
 </h:head>
-<h:body style="background-color:#FFFFE9;">
-   
-        <h2>Approve the users</h2>
-        
-       
-        <p>
-               The data: #{ApproveUsers.voters}
-               </p>
+<h:body>
+        <div id="wrapper">
+            <div id="header">
+        <h2>Approve Users</h2>
+            </div>
+        </div>
+    <div id ="container"> 
+        <div id="content">  
+        <h:form>
+       <h:dataTable value ="#{approveusers.list}" var ="s"
+                    styleClass = "demo-table"
+                    headerClass = "demo-table-header"
+                    rowClasses="demo-table-odd-row,demo-table-even-row">
+           <h:column>
+               <f:facet name ="header">User Id</f:facet>
+               #{s.uid}
+           </h:column>
+           <h:column>
+               <f:facet name ="header">First Name</f:facet>
+               #{s.userFirstName}
+           </h:column>
+           <h:column>
+               <f:facet name ="header">Last Name</f:facet>
+               #{s.userLastName}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Email</f:facet>
+               #{s.userEmailId}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">SSN</f:facet>
+               #{s.userSSN}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Address</f:facet>
+               #{s.userStreetAddress}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">City</f:facet>
+               #{s.userCity}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">State</f:facet>
+               #{s.userState}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Zip</f:facet>
+               #{s.userZip}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Approve</f:facet>
+              <h:commandLink value ="Approve" 
+              onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
+              action ="#{apprejectbean.approve(s.uid)}" /> 
+           </h:column>
+           <h:column>
+               <f:facet name ="header">Reject</f:facet>
+              <h:commandLink value ="Reject" 
+              onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
+              action ="#{apprejectbean.reject(s.uid)}" /> 
+           </h:column>
+       </h:dataTable>
+        </h:form>
+        </div> 
+    </div>
+        <p><h:link outcome="admindashboard" value="Back" /></p>
             
         
    
