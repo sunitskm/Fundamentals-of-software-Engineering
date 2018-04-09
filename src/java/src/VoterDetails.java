@@ -19,12 +19,13 @@ public class VoterDetails {
     private String userCity;
     private String userState;
     private String userZip;
+    private String userApproved;
     
     public VoterDetails(){
         System.out.println("Inside Voter Details");
     }
 
-    public VoterDetails(String uid, String userFirstName, String userLastName, String userEmailId, String userSSN, String userStreetAddress, String userCity, String userState, String userZip) {
+    public VoterDetails(String uid, String userFirstName, String userLastName, String userEmailId, String userSSN, String userStreetAddress, String userCity, String userState, String userZip, String userApproved) {
         this.uid = uid;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
@@ -34,7 +35,20 @@ public class VoterDetails {
         this.userCity = userCity;
         this.userState = userState;
         this.userZip = userZip;
+        this.userApproved = userApproved;
         
+    }
+    
+     public VoterDetails(String uid, String userFirstName, String userLastName, String userEmailId, String userSSN, String userStreetAddress, String userCity, String userState, String userZip) {
+        this.uid = uid;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.userEmailId = userEmailId;
+        this.userSSN = userSSN;
+        this.userStreetAddress = userStreetAddress;
+        this.userCity = userCity;
+        this.userState = userState;
+        this.userZip = userZip;      
     }
 
     public String getUid() {
@@ -107,6 +121,14 @@ public class VoterDetails {
 
     public void setUserZip(String userZip) {
         this.userZip = userZip;
+    }
+    
+     public String getUserApproved() {
+        return userApproved;
+    }
+
+    public void setUserApproved(String userApproved) {
+        this.userApproved = userApproved;
     }
     
 }
