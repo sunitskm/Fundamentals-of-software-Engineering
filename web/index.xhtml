@@ -13,20 +13,29 @@ and open the template in the editor.
         <title>Welcome</title>
         
         <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body style="background-color:#FA8072;">
-        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-brand">Election Management System</div>
+                <div class="navbar-brand"><a href="login.xhtml">Login</a></div>
+                <div class="navbar-brand"><a href="register.xhtml">Register</a></div>
+            </div>
+            
+           
+        </nav>       
         <div id = "login-panel">
-            <h3 style="color:#F5DEB3" >Election Management System</h3>
             <h:form>
-                        
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            
                         <h:graphicImage 
    value = "https://dnaexplained.files.wordpress.com/2016/09/keep-calm-and-vote-now.jpg?w=584"/> 
-                        <br/>
-                        <h:link outcome="login" value="Login" />
-                        <br/>
-                        <h:link outcome="register" value="New User? Register" />
+
             </h:form>
         </div>
     </h:body>
