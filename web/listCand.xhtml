@@ -7,70 +7,59 @@
     xmlns:f="http://java.sun.com/jsf/core">
     
 <h:head>
-    <title>Approve Users</title>
+    <title>Candidates</title>
     <h:outputStylesheet library ="css" name="style2.css" />
 </h:head>
 <h:body>
         <div id="wrapper">
             <div id="header">
-        <h2>Approve Users</h2>
+        <h2>Candidates</h2>
             </div>
         </div>
     <div id ="container"> 
         <div id="content">  
         <h:form>
-       <h:dataTable value ="#{approveusers.list}" var ="s"
+       <h:dataTable value ="#{listcandbean.list}" var ="s"
                     styleClass = "demo-table"
                     headerClass = "demo-table-header"
                     rowClasses="demo-table-odd-row,demo-table-even-row">
-           <h:column>
-               <f:facet name ="header">User Id</f:facet>
-               #{s.uid}
-           </h:column>
+           
            <h:column>
                <f:facet name ="header">First Name</f:facet>
-               #{s.userFirstName}
+               #{s.canFirstName}
            </h:column>
            <h:column>
                <f:facet name ="header">Last Name</f:facet>
-               #{s.userLastName}
+               #{s.canLastName}
            </h:column>
             <h:column>
                <f:facet name ="header">Email</f:facet>
-               #{s.userEmailId}
+               #{s.canEmailId}
            </h:column>
-            <h:column>
-               <f:facet name ="header">SSN</f:facet>
-               #{s.userSSN}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">Address</f:facet>
-               #{s.userStreetAddress}
-           </h:column>
+            
+            
             <h:column>
                <f:facet name ="header">City</f:facet>
-               #{s.userCity}
+               #{s.canCity}
            </h:column>
             <h:column>
                <f:facet name ="header">State</f:facet>
-               #{s.userState}
+               #{s.canState}
            </h:column>
             <h:column>
                <f:facet name ="header">Zip</f:facet>
-               #{s.userZip}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">Approve</f:facet>
-              <h:commandLink value ="Approve" 
-              onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
-              action ="#{apprejectbean.approve(s.uid)}" /> 
+               #{s.canZip}
            </h:column>
            <h:column>
-               <f:facet name ="header">Reject</f:facet>
-              <h:commandLink value ="Reject" 
-              onclick ="if (!confirm('Are you sure you want to reject the user?')) return false"
-              action ="#{apprejectbean.reject(s.uid)}" /> 
+               <f:facet name ="header">Race</f:facet>
+               #{s.canZip}
            </h:column>
+           <h:column>
+               <f:facet name ="header">In Election ?</f:facet>
+               #{s.canInElection}
+           </h:column>
+           
+           
        </h:dataTable>
         </h:form>
         </div> 
