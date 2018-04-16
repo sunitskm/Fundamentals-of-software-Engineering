@@ -11,10 +11,24 @@ and open the template in the editor.
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Register</title>
-        <link rel="stylesheet" type="text/css" href="resources/css/style1.css"/>
+        <style>.error {color:red}</style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body style="background-color:#FFFFE9;">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Election Management System</a>
+                </div>
+                <div class="navbar-brand">
+                    <a href="login.xhtml">Logout</a>
+                </div>
+            </div>
+        </nav>
+        
         <div id = "register-panel">
             <h:form>
                 <table>
