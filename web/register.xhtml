@@ -21,42 +21,38 @@ and open the template in the editor.
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Election Management System</a>
-                </div>
-                <div class="navbar-brand">
-                    <a href="login.xhtml">Logout</a>
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
                 </div>
             </div>
         </nav>
-        
-        <div id = "register-panel">
-            <h:form>
-                <table>
-                    <tr>
-                        <td>User ID </td>
-                        <td><h:inputText id = "registerUserId" value="#{register.registerUserId}" required = "true" label = "User Id" requiredMessage="User Id Required"/></td>
-                        <td><h:message for="registerUserId" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password </td>
-                        <td><h:inputSecret id = "registerUserPassword" value="#{register.registerPassword}" required = "true" label = "Password" requiredMessage="Password Required"/></td>
-                        <td><h:message for="registerUserPassword" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Confirm Password</td>
-                        <td><h:inputSecret id = "registerUserPassword1" value="#{register.registerConfirmPassword}" required = "true" label = "Confirm Password" requiredMessage="Please Confirm your password"/></td>
-                        <td><h:message for="registerUserPassword1" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan = "3"><h:selectOneMenu value="#{register.registerRegisterAs}">
-                        <f:selectItems value="#{login.enterAsOptions}" />
-                            </h:selectOneMenu></td>
-                    </tr>
-                
-                    <tr>
-                        <td colspan = "3"><h:commandButton id ="registerNew" value ="Register" action = "#{register.add}"/></td>
-                    </tr>     
-                </table>
+        <div class="container">
+            <h1>User Registration</h1>
+            <h:form styleClass="form-horizontal">
+                <div class="col-xs-5">
+                    <div class="form-group">
+                        User ID
+                        <h:inputText id = "registerUserId" value="#{register.registerUserId}" styleClass="form-control" required = "true" label = "User Id" requiredMessage="User Id Required"/>
+                        <h:message for="registerUserId" styleClass="error" />    
+                    </div>
+                    <div class="form-group">
+                        Password
+                        <h:inputSecret id = "registerUserPassword" value="#{register.registerPassword}" styleClass="form-control" required = "true" label = "Password" requiredMessage="Password Required"/>
+                        <h:message for="registerUserPassword" styleClass="error" />    
+                    </div>
+                    <div class="form-group">
+                        Confirm Password
+                        <h:inputSecret id = "registerUserPassword1" value="#{register.registerConfirmPassword}" styleClass="form-control" required = "true" label = "Confirm Password" requiredMessage="Please Confirm your password"/>
+                        <h:message for="registerUserPassword1" styleClass="error" />    
+                    </div>
+                    <div class="form-group">
+                        <h:selectOneMenu value="#{register.registerRegisterAs}" styleClass="form-control">
+                            <f:selectItems value="#{login.enterAsOptions}" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="form-group">
+                        <h:commandButton id ="registerNew" value ="Register" styleClass="form-control" action = "#{register.add}"/>   
+                    </div>
+                </div>
             </h:form>
         </div>
     </h:body>
