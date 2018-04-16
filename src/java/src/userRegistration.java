@@ -141,6 +141,16 @@ public class userRegistration {
                  preparedStmt.execute();      
                  i=1;
                  System.out.println("Data Added Successfully");
+                 
+                 SQL = " insert into ZIP (zip_code)"
+        + " values (?)";
+
+                  preparedStmt = connection.prepareStatement(SQL);  
+                  preparedStmt.setString (1, userZip);
+                 System.out.println("Connection is not null");
+                 preparedStmt.execute();     
+                 System.out.println(userZip);
+                 System.out.println("Data Added Successfully");
                  }
              
          }

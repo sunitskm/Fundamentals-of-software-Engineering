@@ -62,6 +62,7 @@ public class ApproveReject extends ElectionDBUtil{
         pstmt.setString(1,reject);
         pstmt.setString(2,uid);
         pstmt.executeUpdate();
+        
         }
         catch(Exception e){
             e.printStackTrace();

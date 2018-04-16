@@ -73,16 +73,16 @@ public class queryusers{
     }
     
     public String queryData(){
-        int zip = Integer.parseInt(zipcode);
+        String zip = zipcode;
         return dbData(firstName, lastName, ssn, zip);
     }
-    public String dbData(String firstName, String lastName, String ssn, int zipcode){
+    public String dbData(String firstName, String lastName, String ssn, String zipcode){
         VoterDetails v;
         list = new ArrayList<>();
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from user01 where first_name like ('" + firstName +"') and last_name like ('" + lastName + "') and ssn like ('" + ssn + "') and zip like ('" + zipcode + "')";
             resultSet = statement.executeQuery(SQL);
