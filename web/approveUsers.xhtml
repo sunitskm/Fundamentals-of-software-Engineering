@@ -5,16 +5,20 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
         <title>Approve Users</title>
+        <h:outputStylesheet library ="css" name="style2.css" />
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
-    <body>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -26,13 +30,70 @@ and open the template in the editor.
               <li><a href="#">Ballot Configuration</a></li>
               <li><a href="#">Precinct Tables</a></li>
             </ul>
-              <div class="navbar-brand">
+            <div class="navbar-brand">
                   <a href="login.xhtml">Logout</a>
-              </div>
+            </div>
           </div>
         </nav>
-        <div class="container">
-
+        <div class="container-fluid">
+            <div>
+                <h1>Approve Users</h1>
+                <h:form>
+                    <h:dataTable value ="#{approveusers.list}" var ="s"
+                    styleClass = "demo-table"
+                    headerClass = "demo-table-header"
+                    rowClasses="demo-table-odd-row,demo-table-even-row">
+                        <h:column>
+                            <f:facet name ="header">User Id</f:facet>
+                            #{s.uid}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">First Name</f:facet>
+                            #{s.userFirstName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Last Name</f:facet>
+                            #{s.userLastName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Email</f:facet>
+                            #{s.userEmailId}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">SSN</f:facet>
+                            #{s.userSSN}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Address</f:facet>
+                            #{s.userStreetAddress}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">City</f:facet>
+                            #{s.userCity}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">State</f:facet>
+                            #{s.userState}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Zip</f:facet>
+                            #{s.userZip}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Approve</f:facet>
+                            <h:commandLink value ="Approve" 
+                           onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
+                           action ="#{apprejectbean.approve(s.uid)}" /> 
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Reject</f:facet>
+                            <h:commandLink value ="Reject" 
+                           onclick ="if (!confirm('Are you sure you want to reject the user?')) return false"
+                           action ="#{apprejectbean.reject(s.uid)}" /> 
+                        </h:column>                   
+                    </h:dataTable>
+                </h:form>
+            </div>
         </div>
-    </body>
+    </h:body>
 </html>
