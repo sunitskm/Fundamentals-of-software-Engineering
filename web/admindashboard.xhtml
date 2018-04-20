@@ -32,6 +32,23 @@
         </nav>
         <div class="container">
         
-        </div>
-    </body>
+        <h:form>
+            <p>
+               <h:commandLink value="Approve Users" action="listunapprovedusers" />
+            </p>
+             <p>
+               <h:commandLink value="Add Candidates" action="addCandidates" />
+            </p>
+            <p>
+               <h:commandLink value="List Candidates" action="listCand" />
+            </p>
+            <p>
+               <h:commandLink value="Create Ballot" action="createBallot" />
+            </p>
+            <p>
+               <h:commandLink value="Add Precinct" action="addPrecinct" />
+            </p>
+        </h:form>
+    </f:view>
+</h:body>
 </html>
