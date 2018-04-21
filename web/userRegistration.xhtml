@@ -35,7 +35,10 @@ and open the template in the editor.
         <div class="container">        
             <h1>Please enter the following details</h1>
             <h:form styleClass="form-horizontal">
-                <div class="col-xs-5">                
+                <div class="col-xs-5">
+                    <div class="form-group">
+                        User Id <h:inputText id="userId" value="#{login.loginId}" styleClass="form-control"/>
+                    </div>
                     <div class="form-group">
                         First Name <h:inputText id = "userFirstName" value="#{userRegistration.userFirstName}" styleClass="form-control" required = "true" label = "First Name" requiredMessage="First Name Required"/>
                         <h:message for="userFirstName" styleClass="error" />
