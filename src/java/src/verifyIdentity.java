@@ -7,6 +7,7 @@ package src;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.sql.Statement;
 /**
  *
  * @author Owner
@@ -59,8 +60,20 @@ public class verifyIdentity extends ElectionDBUtil{
             } else { // user exists
                 resultSet.next();
                 System.out.println("resultSet(4): " + resultSet.getString(4) + "\nemailToVerify: " + emailToVerify + "\n");
-                if(resultSet.getString(4).equals(emailToVerify)) {
-                    return "success_reg";
+                if(resultSet.getString(4).equals(emailToVerify)) { 
+                    statement.close();
+                    Statement securityQStatement = connect().createStatement();
+                    SQL = "Select * from users_security_questions where userid like ('"+ uidToVerify +"')";
+                    resultSet = securityQStatement.executeQuery(SQL);
+                    
+                    if(!resultSet.isBeforeFirst()) { // if user has not set up security questions go to setup
+                        return "securityQuestionSetup";
+                    } else {
+                        return "askSecurityQuestions";
+                    }
+                    
+                    
+                    //return "success_reg";
                 } else {
                     return "verifyIdentityFailure";
                 }
