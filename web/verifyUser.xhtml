@@ -34,12 +34,12 @@
                     <table>
                         <tr>
                             <td>User ID</td>
-                            <td><h:inputText id = "uid"  value="#" required="true" label = "User ID" requiredMessage="User ID Required"/></td>
+                            <td><h:inputText id = "uid"  value="#{verifyIdentity.uidToVerify}" required="true" label = "User ID" requiredMessage="User ID Required"/></td>
                             <td colspan="3"><h:message for="uid" styleClass="error"/></td>
                         </tr>
                         <tr>
                             <td>E-mail</td>
-                            <td><h:inputText id = "email"  value="#" required="true" label = "E-mail" requiredMessage="E-mail Required"/></td>
+                            <td><h:inputText id = "email"  value="#{verifyIdentity.emailToVerify}" required="true" label = "E-mail" requiredMessage="E-mail Required"/></td>
                             <td colspan="3"><h:message for="email" styleClass="error"/></td>
                         </tr>
                         <tr>
