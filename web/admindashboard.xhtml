@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-    <body style="background-color:#FFFFE9;">
+    <h:body style="background-color:#FFFFE9;">
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -30,25 +30,26 @@
               </div>
           </div>
         </nav>
-        <div class="container">
-        
-        <h:form>
-            <p>
-               <h:commandLink value="Approve Users" action="listunapprovedusers" />
-            </p>
-             <p>
-               <h:commandLink value="Add Candidates" action="addCandidates" />
-            </p>
-            <p>
-               <h:commandLink value="List Candidates" action="listCand" />
-            </p>
-            <p>
-               <h:commandLink value="Create Ballot" action="createBallot" />
-            </p>
-            <p>
-               <h:commandLink value="Add Precinct" action="addPrecinct" />
-            </p>
-        </h:form>
-    </f:view>
-</h:body>
+        <f:view>
+            <div class="container">
+                <h:form>
+                    <p>
+                       <h:commandLink value="Approve Users" action="listunapprovedusers" />
+                    </p>
+                     <p>
+                       <h:commandLink value="Add Candidates" action="addCandidates" />
+                    </p>
+                    <p>
+                       <h:commandLink value="List Candidates" action="listCand" />
+                    </p>
+                    <p>
+                       <h:commandLink value="Create Ballot" action="createBallot" />
+                    </p>
+                    <p>
+                       <h:commandLink value="Add Precinct" action="addPrecinct" />
+                    </p>
+                </h:form>
+            </div>
+        </f:view>
+    </h:body>
 </html>
