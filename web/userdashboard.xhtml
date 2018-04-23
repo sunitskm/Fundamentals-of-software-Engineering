@@ -19,28 +19,25 @@
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Election Management System</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
-    <div class="navbar-form col-xs-5">
-        <h:form>
-            <h:inputText value="Search" styleClass="form-control"/>
-            <h:commandButton value ="Enter" styleClass="form-control" action ="#" />
-        </h:form>
-    </div>
-    <div class="navbar-brand nav-justified">
-        <a href="login.xhtml">Logout</a>
-    </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Election Management System</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="userdashboard.xhtml">Home</a></li>
+            <li><a href="demographicSearch.xhtml">Demographics Search</a></li>
+            <li><a href="#">Vote</a></li>
+        </ul>
+        <div class="navbar-brand">
+            <a href="login.xhtml">Logout</a>
+        </div>
     </div>
 </nav>
   
 <div class="container">
-  
+    <h1 >Demographics Search</h1>
+    <p> You can search for users based on their city, state or zip-code. Not all fields are required, but for more specific results provide more info.</p>
+    <h1>Vote</h1>
+    <p> If an election is in cycle then your specific ballot will be available for voting.</p>
 </div>
 </body>
 </html>
