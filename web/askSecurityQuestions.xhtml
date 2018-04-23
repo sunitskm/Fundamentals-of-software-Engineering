@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Security Questions</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+            </div>
+        </nav>
+        <div id="wrapper">
+            <div id="header">
+                <h2>Security Questions</h2>
+            </div>
+        </div>
+        <div id ="container"> 
+            <div id="content">  
+                <h:form>
+                    <table>
+                        <tr>
+                            
+                            <h:outputLabel value="Security Question 1"/>
+                            <h:outputText id="q1" value="#{verifyIdentity.getUidToVerify()}"/>
+                        </tr>
+                        <tr>
+                            <td>Answer to Security Question 1</td>
+                            <td><h:inputText id = "a1"  value="#" required="true" label = "answer 1" requiredMessage="Security Answer Required"/></td>
+                            <td colspan="10"><h:message for="a1" styleClass="error"/></td>
+                        </tr>
+                        <tr>
+                            <td>Security Question 2</td>
+                            <td><h:inputText id = "q2"  value="#" required="true" label = "question 2" requiredMessage="Security Question Required"/></td>
+                            <td colspan="10"><h:message for="q2" styleClass="error"/></td>
+                        </tr>
+                        <tr>
+                            <td>Answer to Security Question 2</td>
+                            <td><h:inputText id = "a2"  value="#" required="true" label = "answer 2" requiredMessage="Security Answer Required"/></td>
+                            <td colspan="10"><h:message for="a2" styleClass="error"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:commandButton value ="Submit" action="#"/> </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
