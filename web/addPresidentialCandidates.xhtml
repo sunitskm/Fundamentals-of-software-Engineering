@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Adding Presidential Candidates</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="admindashboard.xhtml">Home</a></li>
+              <li><a href="approveUsers.xhtml">Approve Users</a></li>
+              <li class="active"><a href="selectRaceType.xhtml">Add Candidates</a></li>
+              <li><a href="#">Ballot Configuration</a></li>
+            </ul>
+            <div class="navbar-brand">
+                <a href="login.xhtml">Logout</a>
+            </div>
+        </nav>
+        <div id="wrapper">
+            <div id="header">
+                <h2>Adding Presidential Candidates</h2>
+            </div>
+        </div>
+        <div id ="container"> 
+            <div id="content">  
+                <h:form>
+                    <table>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="President First Name: "/>
+                            <h:inputText id = "presFirstName"  value="#" required="true" label = "presFirstName" requiredMessage="President First Name Required"/>
+                            <td colspan="10"><h:message for="presFirstName" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="President Last Name: "/>
+                            <h:inputText id = "prestlastName"  value="#" required="true" label = "prestlastName" requiredMessage="President Last Name Required"/>
+                            <td colspan="10"><h:message for="prestlastName" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="President E-mail: "/>
+                            <h:inputText id = "presEmail"  value="#" required="true" label = "presEmail" requiredMessage="President E-mail Required"/>
+                            <td colspan="10"><h:message for="presEmail" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Vice President First Name: "/>
+                            <h:inputText id = "vpFrirstName"  value="#" required="true" label = "vpFrirstName" requiredMessage="Vice President FirstName Required"/>
+                            <td colspan="10"><h:message for="vpFrirstName" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Vice President Last Name: "/>
+                            <h:inputText id = "vpLastName"  value="#" required="true" label = "vpLastName" requiredMessage="Vice President Last Name Required"/>
+                            <td colspan="10"><h:message for="vpLastName" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Vice President E-mail: "/>
+                            <h:inputText id = "vpEmail"  value="#" required="true" label = "vpEmail" requiredMessage="Vice President E-mail Required"/>
+                            <td colspan="10"><h:message for="vpEmail" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <td><h:commandButton value ="Submit" action="#"/> </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
