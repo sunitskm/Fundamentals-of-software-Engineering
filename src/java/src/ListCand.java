@@ -22,19 +22,23 @@ public class ListCand extends ElectionDBUtil{
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 v = new CandDetails();
-                v.setCanFirstName(resultSet.getString(1));
-                v.setCanLastName(resultSet.getString(2));
+                v.setCanId(Integer.parseInt(resultSet.getString(1)));
+                v.setCanFirstName(resultSet.getString(2));
+                v.setCanLastName(resultSet.getString(3));
                
-                v.setCanEmailId(resultSet.getString(3));
-                v.setCanZip(resultSet.getString(4));   
+                v.setCanEmailId(resultSet.getString(4));
+                v.setCanZip(resultSet.getString(5));   
                 
-                v.setCanCity(resultSet.getString(5));
-                v.setCanState(resultSet.getString(6));
-                v.setCanRace(resultSet.getString(7));   
-                v.setCanInElection(resultSet.getString(8));   
+                v.setCanCity(resultSet.getString(6));
+                v.setCanPrecinct(resultSet.getString(7));
+                v.setCanState(resultSet.getString(8));
+                v.setCanRace(resultSet.getString(9));   
+                v.setCanInElection(resultSet.getString(10));   
                 
                 list.add(v);
+                System.out.println("Inside List candidate");
     } 
+           
             return list;
         }
         catch(Exception e){

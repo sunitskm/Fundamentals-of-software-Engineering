@@ -52,12 +52,10 @@ public class SelectPrecinct extends ElectionDBUtil implements Serializable {
         List<String> list = new ArrayList<String>();
         try{
             statement = connect().createStatement(); 
-        SQL = "Select * from ZIP_CODE_DATABASE LIMIT 5";
+        SQL = "Select * from PRECINCT";
         CandDetails v;
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
-                
-                
                 list.add(resultSet.getString(1));
     } 
             return list;

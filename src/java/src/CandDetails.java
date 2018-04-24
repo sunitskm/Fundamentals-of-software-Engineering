@@ -10,29 +10,42 @@ package src;
  * @author Lenovo
  */
 public class CandDetails {
+    private int canId;
     private String canFirstName;
     private String canLastName;  
     private String canEmailId;
     private String canZip;
+    private String canPrecinct;
     private String canCity;
     private String canState;
     private String canRace;
     private String canInElection;
+    
 
     public CandDetails() {
     }
 
-    public CandDetails(String canFirstName, String canLastName, String canEmailId, String canZip, String canCity, String canState, String canRace, String canInElection) {
+    public CandDetails(int canId,String canFirstName, String canLastName, String canEmailId, String canZip, String canPrecinct,String canCity, String canState, String canRace, String canInElection) {
+        this.canId = canId;
         this.canFirstName = canFirstName;
         this.canLastName = canLastName;
         this.canEmailId = canEmailId;
         this.canZip = canZip;
+        this.canPrecinct = canPrecinct;
         this.canCity = canCity;
         this.canState = canState;
         this.canRace = canRace;
         this.canInElection = canInElection;
     }
 
+    public int getCanId() {
+        return canId;
+    }
+
+    public void setCanId(int canId) {
+        this.canId = canId;
+    }
+    
     public String getCanFirstName() {
         return canFirstName;
     }
@@ -72,6 +85,15 @@ public class CandDetails {
     public void setCanCity(String canCity) {
         this.canCity = canCity;
     }
+
+    public String getCanPrecinct() {
+        return canPrecinct;
+    }
+
+    public void setCanPrecinct(String canPrecinct) {
+        this.canPrecinct = canPrecinct;
+    }
+    
 
     public String getCanState() {
         return canState;
