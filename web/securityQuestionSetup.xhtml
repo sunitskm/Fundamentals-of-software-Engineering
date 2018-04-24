@@ -1,16 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Security Question Setup</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+            </div>
+        </nav>
+        <div id="wrapper">
+            <div id="header">
+                <h2>Security Question Setup</h2>
+            </div>
+        </div>
+        <div id ="container"> 
+            <div id="content">  
+                <h:form>
+                    <table>
+                        <tr>
+                            <h:outputLabel value="Security Question 1: " styleClass="col-xs-2"/>
+                            <h:inputText id = "q1"  value="#{securityQuestionsBean.q1}" required="true" label = "question 1" requiredMessage="Security Question Required" style="width:250px"/>
+                            <td colspan="10"><h:message for="q1" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel value="Answer to Security Question 1: " styleClass="col-xs-2"/>
+                            <h:inputText id = "a1"  value="#{securityQuestionsBean.correctAnswerQ1}" required="true" label = "answer 1" requiredMessage="Security Answer Required" style="width:250px"/>
+                            <td colspan="10"><h:message for="a1" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel value="Security Question2: " styleClass="col-xs-2"/>
+                            <h:inputText id = "q2"  value="#{securityQuestionsBean.q2}" required="true" label = "question 2" requiredMessage="Security Question Required" style="width:250px"/>
+                            <td colspan="10"><h:message for="q2" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel value="Answer to Security Question 2: " styleClass="col-xs-2"/>
+                            <h:inputText id = "a2"  value="#{securityQuestionsBean.correctAnswerQ2}" required="true" label = "answer 2" requiredMessage="Security Answer Required" style="width:250px"/>
+                            <td colspan="10"><h:message for="a2" styleClass="error"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:commandButton value ="Submit" action="#{securityQuestionsBean.updateSecurityQuestions(verifyIdentity.getUidToVerify())}"/> </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
 </html>
+

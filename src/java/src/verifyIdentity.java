@@ -62,9 +62,11 @@ public class verifyIdentity extends ElectionDBUtil{
                 System.out.println("resultSet(4): " + resultSet.getString(4) + "\nemailToVerify: " + emailToVerify + "\n");
                 if(resultSet.getString(4).equals(emailToVerify)) { 
                     statement.close();
-                    Statement securityQStatement = connect().createStatement();
+                    statement = connect().createStatement();
+                    //Statement securityQStatement = connect().createStatement();
                     SQL = "Select * from users_security_questions where userid like ('"+ uidToVerify +"')";
-                    resultSet = securityQStatement.executeQuery(SQL);
+                    //resultSet = securityQStatement.executeQuery(SQL);
+                    resultSet = statement.executeQuery(SQL);
                     
                     if(!resultSet.isBeforeFirst()) { // if user has not set up security questions go to setup
                         return "securityQuestionSetup";
