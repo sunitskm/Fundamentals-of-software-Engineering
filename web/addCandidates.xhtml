@@ -52,7 +52,9 @@ and open the template in the editor.
                 </h:inputText>
                 <h:message for="canZip" styleClass="error" />
                 <br/><br/>
-                
+                 Precinct <h:inputText id ="canPrecinct" value ="#{AddCandidates.canPrecinct}" required = "true" label = "Precinct" requiredMessage="Precinct Required"/>
+                <h:message for="canPrecinct" styleClass="error" />
+                 <br/><br/>
                 Race <h:selectOneMenu value="#{AddCandidates.canRace}" label = "Select Type">
                         <f:selectItems value="#{AddCandidates.raceOptions}" />
                         </h:selectOneMenu>
