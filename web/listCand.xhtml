@@ -22,11 +22,7 @@
        <h:dataTable value ="#{listcandbean.list}" var ="s"
                     styleClass = "demo-table"
                     headerClass = "demo-table-header"
-                    rowClasses="demo-table-odd-row,demo-table-even-row">
-           <h:column>
-               <f:facet name ="header">ID</f:facet>
-               #{s.canId}
-           </h:column>
+                    rowClasses="demo-table-odd-row,demo-table-even-row">       
            <h:column>
                <f:facet name ="header">First Name</f:facet>
                #{s.canFirstName}
@@ -39,35 +35,7 @@
                <f:facet name ="header">Email</f:facet>
                #{s.canEmailId}
            </h:column>
-            
-            
-            <h:column>
-               <f:facet name ="header">City</f:facet>
-               #{s.canCity}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">State</f:facet>
-               #{s.canState}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">Zip</f:facet>
-               #{s.canZip}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">Precinct</f:facet>
-               #{s.canPrecinct}
-           </h:column>
-           <h:column>
-               <f:facet name ="header">Race</f:facet>
-               #{s.canRace}
-           </h:column>
-           <h:column>
-               <f:facet name ="header">In Election ?</f:facet>
-               #{s.canInElection}
-           </h:column>
-           
-           
-       </h:dataTable>
+        </h:dataTable>
         </h:form>
         </div> 
     </div>

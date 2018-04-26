@@ -10,40 +10,58 @@ package src;
  * @author Lenovo
  */
 public class CandDetails {
-    private int canId;
+    private String race;
     private String canFirstName;
     private String canLastName;  
     private String canEmailId;
-    private String canZip;
-    private String canPrecinct;
-    private String canCity;
-    private String canState;
-    private String canRace;
-    private String canInElection;
-    
+    private String vpFirstName;
+    private String vpLastName;
+    private int votes;
 
     public CandDetails() {
     }
 
-    public CandDetails(int canId,String canFirstName, String canLastName, String canEmailId, String canZip, String canPrecinct,String canCity, String canState, String canRace, String canInElection) {
-        this.canId = canId;
+    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, int votes) {
+        this.race = race;
         this.canFirstName = canFirstName;
         this.canLastName = canLastName;
         this.canEmailId = canEmailId;
-        this.canZip = canZip;
-        this.canPrecinct = canPrecinct;
-        this.canCity = canCity;
-        this.canState = canState;
-        this.canRace = canRace;
-        this.canInElection = canInElection;
+        this.votes = votes;
+    }
+    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId) {
+        this.race = race; 
+        this.canFirstName = canFirstName;
+        this.canLastName = canLastName;
+        this.canEmailId = canEmailId;
+        this.votes = 0;
+    }
+    
+    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, String vpFirstName, String vpLastName, int votes) {
+        this.race = race;
+        this.canFirstName = canFirstName;
+        this.canLastName = canLastName;
+        this.canEmailId = canEmailId;
+        this.vpFirstName = vpFirstName;
+        this.vpLastName = vpLastName;
+        this.votes = votes;
+    }
+    
+    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, String vpFirstName, String vpLastName) {
+        this.race = race;
+        this.canFirstName = canFirstName;
+        this.canLastName = canLastName;
+        this.canEmailId = canEmailId;
+        this.vpFirstName = vpFirstName;
+        this.vpLastName = vpLastName;
+        this.votes = 0;
     }
 
-    public int getCanId() {
-        return canId;
+     public String getRace() {
+        return race;
     }
 
-    public void setCanId(int canId) {
-        this.canId = canId;
+    public void setRace(String race) {
+        this.race = race;
     }
     
     public String getCanFirstName() {
@@ -69,56 +87,28 @@ public class CandDetails {
     public void setCanEmailId(String canEmailId) {
         this.canEmailId = canEmailId;
     }
-
-    public String getCanZip() {
-        return canZip;
+     public int getVotes() {
+        return votes;
     }
 
-    public void setCanZip(String canZip) {
-        this.canZip = canZip;
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 
-    public String getCanCity() {
-        return canCity;
+    
+    public String getVpFirstName() {
+        return vpFirstName;
     }
 
-    public void setCanCity(String canCity) {
-        this.canCity = canCity;
-    }
-
-    public String getCanPrecinct() {
-        return canPrecinct;
-    }
-
-    public void setCanPrecinct(String canPrecinct) {
-        this.canPrecinct = canPrecinct;
+    public void setVpFirstName(String vpFirstName) {
+        this.vpFirstName = vpFirstName;
     }
     
-
-    public String getCanState() {
-        return canState;
+    public String getVpLastName() {
+        return vpLastName;
     }
 
-    public void setCanState(String canState) {
-        this.canState = canState;
+    public void setVpLastName(String vpLastName) {
+        this.vpLastName = vpLastName;
     }
-
-    public String getCanRace() {
-        return canRace;
-    }
-
-    public void setCanRace(String canRace) {
-        this.canRace = canRace;
-    }
-
-    public String getCanInElection() {
-        return canInElection;
-    }
-
-    public void setCanInElection(String canInElection) {
-        this.canInElection = canInElection;
-    }
-    
-    
-    
 }

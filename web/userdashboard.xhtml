@@ -6,37 +6,30 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 
-<head>
-  <title>User Dashboard</title>
-  <meta charset="utf-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-    
-<body style="background-color:#FFFFE9;">
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Election Management System</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="userdashboard.xhtml">Home</a></li>
-            <li><a href="#">Vote</a></li>
-        </ul>
-        <div class="navbar-brand">
-            <a href="login.xhtml">Logout</a>
-        </div>
-    </div>
-</nav>
-  
-<div class="container">
-    <h1>Vote</h1>
-    <p> If an election is in cycle then your specific ballot will be available for voting.</p>
-</div>
-</body>
+<h:head>
+    <title>User Dashboard</title>
+    <h:outputStylesheet library ="css" name="style.css" />
+</h:head>
+<h:body style="background-color:#FFFFE9;">
+    <f:view>
+        <h2>Work under progress</h2>
+        <p>Welcome User. </p>
+        <p>You have been approved by an admin.</p>
+        
+        <h:form>
+            <p>
+               <td>Zip Code</td> 
+               <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" required ="true" label = "Zip Code" requiredMessage="Zip Code  Required"/></td>
+               <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
+               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
+            </p>
+            <br></br>
+             <p>
+               <h:commandLink value="Vote" action="userdashboard" />
+            </p>
+        </h:form>
+    </f:view>
+</h:body>
 </html>
 
 
