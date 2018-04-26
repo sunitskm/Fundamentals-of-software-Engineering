@@ -25,6 +25,20 @@ import java.sql.Statement;
 @ManagedBean   
 @SessionScoped
 public class queryusers{
+
+    /**
+     * @return the uid
+     */
+    public String getUid() {
+        return uid;
+    }
+
+    /**
+     * @param uid the uid to set
+     */
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
     private String firstName;
     private String lastName;
     private String zipcode;
@@ -76,13 +90,15 @@ public class queryusers{
         String zip = zipcode;
         return dbData(firstName, lastName, ssn, zip);
     }
+    
+    private String uid;
     public String dbData(String firstName, String lastName, String ssn, String zipcode){
         VoterDetails v;
         list = new ArrayList<>();
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from userreg where first_name like ('" + firstName +"') and last_name like ('" + lastName + "') and ssn like ('" + ssn + "') and zip like ('" + zipcode + "')";
             resultSet = statement.executeQuery(SQL);
@@ -90,6 +106,7 @@ public class queryusers{
             while (resultSet.next()) {
                     v = new VoterDetails();
                     v.setUid(resultSet.getString(1));
+                    setUid(resultSet.getString(1));
                     v.setUserFirstName(resultSet.getString(2));
                     v.setUserLastName(resultSet.getString(3));
                     v.setUserEmailId(resultSet.getString(4));
