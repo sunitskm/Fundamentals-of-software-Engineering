@@ -22,6 +22,19 @@ public class AppRejectBean implements Serializable {
     public String approve(String uid){
         System.out.println("Inside approve of app reject bean");
         ApproveReject ap = new ApproveReject();
+        try {
+            String SQL = "INSERT INTO user_voting VALUES ('"+uid+"','0','0','0','0')";
+            ap.statement.executeUpdate(SQL);
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            try {
+                ap.statement.close();
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
         ap.approve(uid);
          return "listunapproveduser" ;
     }
