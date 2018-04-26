@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang ="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h ="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Candidates</title>
+        <style>
+            .error {color:red}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
+        <div>
+            <h1>Please enter the following details</h1>
+        </div>
+        <div>
+            <h:form>
+                
+                
+                
+                First Name <h:inputText id = "canFirstName" value="#{AddCandidates.canFirstName}" required = "true" label = "First Name" requiredMessage="First Name Required"/>
+                <h:message for="canFirstName" styleClass="error" />
+                <br/>
+                <br/>
+                Last Name <h:inputText id = "canLastName" value="#{AddCandidates.canLastName}"/>
+                <br/>
+                <br/>
+                Email Id <h:inputText id = "canEmailId" value="#{AddCandidates.canEmailId}" required = "true" label = "Email" requiredMessage="Email Required" validatorMessage="Please enter a valid email id">
+                    <f:validateRegex pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}" />
+                    
+                </h:inputText>
+                <h:message for="canEmailId" styleClass="error" />
+                <br/>
+                <br/>
+                City <h:inputText id ="canCity" value ="#{AddCandidates.canCity}" required = "true" label = "City" requiredMessage="City Required"/>
+                <h:message for="canCity" styleClass="error" />
+                <br/>
+                <br/>
+                State <h:inputText id ="canState" value ="#{AddCandidates.canState}" required = "true" label = "State" requiredMessage="State Required"/>
+                <h:message for="canState" styleClass="error" />
+                <br/>
+                <br/>
+                Zip Code <h:inputText id ="canZip" value ="#{AddCandidates.canZip}" required = "true" label = "Zip Code" requiredMessage="Zip Code Required">
+                    <f:validateLength minimum ="5" maximum ="5"/>
+                </h:inputText>
+                <h:message for="canZip" styleClass="error" />
+                <br/><br/>
+                 Precinct <h:inputText id ="canPrecinct" value ="#{AddCandidates.canPrecinct}" required = "true" label = "Precinct" requiredMessage="Precinct Required"/>
+                <h:message for="canPrecinct" styleClass="error" />
+                 <br/><br/>
+                Race <h:selectOneMenu value="#{AddCandidates.canRace}" label = "Select Type">
+                        <f:selectItems value="#{AddCandidates.raceOptions}" />
+                        </h:selectOneMenu>
+                
+                <br/><br/>
+                 <h:commandButton value ="Add Candidate" onclick ="if (!confirm('Are you sure you want to add the candidate?')) return false"
+              action ="#{AddCandidates.addCand}" /> 
+            
+              
+                
+               
+            </h:form>
+        </div>
+        
+        <div>
+            <h:form>
+            <p>
+               <p><h:link outcome="admindashboard" value="Back" /></p>
+            </p>
+            </h:form>
+        </div>
+    </h:body>
+</html>

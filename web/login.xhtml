@@ -11,34 +11,44 @@ and open the template in the editor.
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
+        <style>.error {color:red}</style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body style="background-color:#FFFFE9;">
-        <div id = "login-panel">
-            <h:form>
-                <table>
-                    <tr>
-                        <td>User ID </td> 
-                        <td><h:inputText id = "userId"  value="#{login.loginId}" required ="true" label = "User Id" requiredMessage="User Id Required"/></td>
-                        <td colspan="3"><h:message for="userId" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><h:inputSecret id = "userPassword" value="#{login.loginPassword}" required = "true" label = "Password" requiredMessage="Password Required"/></td>
-                        <td colspan = "3"><h:message for="userPassword" styleClass="error" /></td>
-                    </tr>
-                    <tr>
-                        <td>Type</td><td> <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type">
-                        <f:selectItems value="#{login.enterAsOptions}" />
-                        </h:selectOneMenu></td>
-                    </tr>
-                    <tr>
-                        <td><h:commandButton value ="Login" action ="#{login.checkValidUser}" /> </td>
-                        <td><h:link outcome="register" value="New User? Register" /></td>
-                    </tr>
-                </table>
-            </h:form>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>User Login</h1>
+                <div class="col-xs-5">
+                    <h:form styleClass="form-horizontal">
+                        <div class="form-group">
+                            User ID
+                            <h:inputText id = "userId" value="#{login.loginId}" styleClass="form-control col-sm-5" required ="true" label = "User Id" requiredMessage="User Id Required"/>
+                        </div>
+                        <div class="form-group">
+                            Password
+                            <h:inputSecret id = "userPassword" value="#{login.loginPassword}" styleClass="form-control col-sm-5" required = "true" label = "Password" requiredMessage="Password Required"/>
+                        </div>
+                        <div class="form-group">
+                            Type
+                            <h:selectOneMenu value="#{login.loginEnterAs}" label = "Select Type" styleClass="form-control col-sm-5">
+                            <f:selectItems value="#{login.enterAsOptions}"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="form-group">                       
+                            <h:commandButton value ="Login" styleClass="form-control" action ="#{login.checkValidUser}" />
+                            <h:link outcome="register" value="New User? Register" />                          
+                        </div>
+                    </h:form>
+                </div>
         </div>
     </h:body>
 </html>

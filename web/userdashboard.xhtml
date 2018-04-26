@@ -7,19 +7,29 @@
     xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-    <title>Success Page</title>
+    <title>User Dashboard</title>
+    <h:outputStylesheet library ="css" name="style.css" />
 </h:head>
 <h:body style="background-color:#FFFFE9;">
     <f:view>
         <h2>Work under progress</h2>
-        <p>You have been approved by an Admin. </p>
+        <p>Welcome User. </p>
+        <p>You have been approved by an admin.</p>
         
         <h:form>
             <p>
-                <h:commandLink value="Logout" action="login" />
+               <td>Zip Code</td> 
+               <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" required ="true" label = "Zip Code" requiredMessage="Zip Code  Required"/></td>
+               <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
+               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
+            </p>
+            <br></br>
+             <p>
+               <h:commandLink value="Vote" action="userdashboard" />
             </p>
         </h:form>
     </f:view>
 </h:body>
 </html>
+
 

@@ -24,33 +24,17 @@ import java.sql.Statement;
 
 @ManagedBean   
 @SessionScoped
-public class queryusers{
-    private String firstName;
-    private String lastName;
+public class queryelections{
     private String zipcode;
-    private String ssn;
-    public static ArrayList<VoterDetails> list = new ArrayList();
+    public static ArrayList<ElectionDetails> list = new ArrayList();
     Connection connection;
     Statement statement;
+    Statement statement2;
     ResultSet resultSet;
+    ResultSet setTwo;
     String SQL;
     List<String> enterAsOptions;
-    
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    String cands;
 
     public String getZipcode() {
         return zipcode;
@@ -64,43 +48,50 @@ public class queryusers{
         return list;
     }
     
-    public String getssn(){
-        return ssn;
-    }
-    
-    public void setssn(String ssn){
-        this.ssn = ssn;
-    }
-    
     public String queryData(){
-        String zip = zipcode;
-        return dbData(firstName, lastName, ssn, zip);
+        return dbData(zipcode);
     }
-    public String dbData(String firstName, String lastName, String ssn, String zipcode){
-        VoterDetails v;
+    public String dbData(String zipcode){
+        ElectionDetails v;
+        CandDetails c; 
         list = new ArrayList<>();
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
             statement = connection.createStatement(); 
-            SQL = "Select * from userreg where first_name like ('" + firstName +"') and last_name like ('" + lastName + "') and ssn like ('" + ssn + "') and zip like ('" + zipcode + "')";
+            SQL = "select precinct_name from prec_zip where zip_code like " + zipcode;
+            resultSet = statement.executeQuery(SQL);
+            resultSet.next();
+            String precinct = resultSet.getString(1);
+            
+            SQL = "select * from elections where race like 'United States President' or precinct like " + precinct;
             resultSet = statement.executeQuery(SQL);
 
             while (resultSet.next()) {
-                    v = new VoterDetails();
-                    v.setUid(resultSet.getString(1));
-                    v.setUserFirstName(resultSet.getString(2));
-                    v.setUserLastName(resultSet.getString(3));
-                    v.setUserEmailId(resultSet.getString(4));
-                    v.setUserSSN(resultSet.getString(5));
-                    v.setUserStreetAddress(resultSet.getString(6));
-                    v.setUserCity(resultSet.getString(7));
-                    v.setUserState(resultSet.getString(8));
-                    v.setUserZip(resultSet.getString(9));  
-                    v.setUserApproved(resultSet.getString(11));
-                    v.setUserZip(resultSet.getString(9));   
-                    list.add(v);
+                v = new ElectionDetails();
+                v.setEid(resultSet.getString(1));
+                v.setPrecinct(resultSet.getString(2));
+                v.setRace(resultSet.getString(3));
+                v.setDate(resultSet.getString(4));
+                v.setIsOngoing(resultSet.getInt(5));  
+                
+                statement2 = connection.createStatement(); 
+                if (v.getRace().equals("United States President")){
+                    SQL = "select first_name, last_name from pres_cand where race like '" + v.getRace() + "'";
+                    setTwo = statement2.executeQuery(SQL);
+                } else{
+                    SQL = "select first_name, last_name from congress_cand where race like '" + v.getRace() + "'";
+                    setTwo = statement2.executeQuery(SQL);
+                }
+                
+                cands = "";
+                while(setTwo.next()){
+                    cands += setTwo.getString(1) + " " + setTwo.getString(2) + ", ";
+                }
+                cands = cands.substring(0, cands.length()-2);
+                v.setCandidates(cands);
+                list.add(v);
             } 
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -113,7 +104,7 @@ public class queryusers{
                     e.printStackTrace();
                 }    
             }
-    return "listqueryusers";
+    return "listupcomingelections";
     }
 }
     

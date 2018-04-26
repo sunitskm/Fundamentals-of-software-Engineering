@@ -14,65 +14,73 @@ and open the template in the editor.
         <style>
             .error {color:red}
         </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body style="background-color:#FFFFE9;">
-        <div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Election Management System</a>
+                </div>
+                <div class="navbar-brand">
+                    <a href="login.xhtml">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">        
             <h1>Please enter the following details</h1>
-        </div>
-        <div>
-            <h:form>
-                
-                User Id: <h:outputText id = "userId" value = "#{login.loginId}"/>
-                <br/><br/>
-                First Name <h:inputText id = "userFirstName" value="#{userRegistration.userFirstName}" required = "true" label = "First Name" requiredMessage="First Name Required"/>
-                <h:message for="userFirstName" styleClass="error" />
-                <br/>
-                <br/>
-                Last Name <h:inputText id = "userLastName" value="#{userRegistration.userLastName}"/>
-                <br/>
-                <br/>
-                Email Id <h:inputText id = "userEmailId" value="#{userRegistration.userEmailId}" required = "true" label = "Email" requiredMessage="Email Required" validatorMessage="Please enter a valid email id">
-                    <f:validateRegex pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}" />
-                    
-                </h:inputText>
-                <h:message for="userEmailId" styleClass="error" />
-                <br/>
-                <br/>
-                SSN <h:inputText id = "userSSN" value="#{userRegistration.userSSN}" required = "true" label = "SSN" requiredMessage="SSN Required" validatorMessage="SSN must follow xxx-xx-xxxx">
-                    <f:validateRegex pattern="\d{3}-\d{2}-\d{4}" />
-                </h:inputText>
-                <h:message for="userSSN" styleClass="error" />
-                <br/>
-                <br/>
-                Street Address <h:inputText id ="userStreetAddress" value ="#{userRegistration.userStreetAddress}" required = "true" label = "Street Address" requiredMessage="Street Address Required"/>
-                <h:message for="userStreetAddress" styleClass="error" />
-                <br/>
-                <br/>
-                City <h:inputText id ="userCity" value ="#{userRegistration.userCity}" required = "true" label = "City" requiredMessage="City Required"/>
-                <h:message for="userCity" styleClass="error" />
-                <br/>
-                <br/>
-                State <h:inputText id ="userState" value ="#{userRegistration.userState}" required = "true" label = "State" requiredMessage="State Required"/>
-                <h:message for="userState" styleClass="error" />
-                <br/>
-                <br/>
-                Zip Code <h:inputText id ="userZip" value ="#{userRegistration.userZip}" required = "true" label = "Zip Code" requiredMessage="Zip Code Required">
-                    <f:validateLength minimum ="5" maximum ="5"/>
-                </h:inputText>
-                <h:message for="userZip" styleClass="error" />
-                <br/><br/>
-                <h:commandButton value ="Submit" action ="#{userRegistration.add(login.loginId,login.loginEnterAs)}"/>
-               
-            </h:form>
-        </div>
-        
-        <div>
-            <h:form>
-            <p>
-                <h:commandLink value="logout" action="#{login.logout}" />
-            </p>
-            </h:form>
+            <h:form styleClass="form-horizontal">
+                <div class="col-xs-5">
+                    <div class="form-group">
+                        User Id <h:inputText id="userId" value="#{login.loginId}" styleClass="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        First Name <h:inputText id = "userFirstName" value="#{userRegistration.userFirstName}" styleClass="form-control" required = "true" label = "First Name" requiredMessage="First Name Required"/>
+                        <h:message for="userFirstName" styleClass="error" />
+                    </div>                  
+                    <div class="form-group">
+                        Last Name <h:inputText id = "userLastName" styleClass="form-control" value="#{userRegistration.userLastName}"/>
+                    </div>
+                    <div class="form-group">
+                        Email Id <h:inputText id = "userEmailId" value="#{userRegistration.userEmailId}" styleClass="form-control" required = "true" label = "Email" requiredMessage="Email Required" validatorMessage="Please enter a valid email id">
+                            <f:validateRegex pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}" />
+                        </h:inputText>
+                        <h:message for="userEmailId" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        SSN <h:inputText id = "userSSN" value="#{userRegistration.userSSN}" styleClass="form-control" required = "true" label = "SSN" requiredMessage="SSN Required" validatorMessage="SSN must follow xxx-xx-xxxx">
+                            <f:validateRegex pattern="\d{3}-\d{2}-\d{4}" />
+                        </h:inputText>
+                        <h:message for="userSSN" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        Street Address <h:inputText id ="userStreetAddress" value ="#{userRegistration.userStreetAddress}" styleClass="form-control" required = "true" label = "Street Address" requiredMessage="Street Address Required"/>
+                        <h:message for="userStreetAddress" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        City <h:inputText id ="userCity" value ="#{userRegistration.userCity}" styleClass="form-control" required = "true" label = "City" requiredMessage="City Required"/>
+                        <h:message for="userCity" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        State <h:inputText id ="userState" value ="#{userRegistration.userState}" styleClass="form-control" required = "true" label = "State" requiredMessage="State Required"/>
+                        <h:message for="userState" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        Zip Code <h:inputText id ="userZip" value ="#{userRegistration.userZip}" styleClass="form-control" required = "true" label = "Zip Code" requiredMessage="Zip Code Required">
+                            <f:validateLength minimum ="5" maximum ="5"/>
+                        </h:inputText>
+                        <h:message for="userZip" styleClass="error" />
+                    </div>
+                    <div class="form-group">
+                        <h:commandButton value ="Submit" styleClass="form-control" action ="#{userRegistration.add(login.loginId,login.loginEnterAs)}"/>
+                    </div>
+                </div>
+            </h:form>         
         </div>
     </h:body>
 </html>

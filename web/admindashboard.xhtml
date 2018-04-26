@@ -5,21 +5,51 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
-
-<h:head>
+  <head>
     <title>Admin Dashboard</title>
-</h:head>
-<h:body style="background-color:#FFFFE9;">
-    <f:view>
-        <h2>Work under progress</h2>
-        <p>Welcome Admin. </p>
-        
-        <h:form>
-            <p>
-               <h:commandLink value="Approve Users" action="listunapprovedusers" />
-            </p>
-        </h:form>
-    </f:view>
-</h:body>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+    <h:body style="background-color:#FFFFE9;">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Election Management System</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="admindashboard.xhtml">Home</a></li>
+              <li><a href="approveUsers.xhtml">Approve Users</a></li>
+              <li><a href="#">Ballot Configuration</a></li>
+              <li><a href="#">Precinct Tables</a></li>
+            </ul>
+              <div class="navbar-brand">
+                  <a href="login.xhtml">Logout</a>
+              </div>
+          </div>
+        </nav>
+        <f:view>
+            <div class="container">
+                <h:form>
+                    <p>
+                       <h:commandLink value="Approve Users" action="listunapprovedusers" />
+                    </p>
+                     <p>
+                       <h:commandLink value="Add Candidates" action="addCandidates" />
+                    </p>
+                    <p>
+                       <h:commandLink value="List Candidates" action="listCand" />
+                    </p>
+                    <p>
+                       <h:commandLink value="Create Ballot" action="createBallot" />
+                    </p>
+                    <p>
+                       <h:commandLink value="Add Precinct" action="addPrecinct" />
+                    </p>
+                </h:form>
+            </div>
+        </f:view>
+    </h:body>
 </html>
-

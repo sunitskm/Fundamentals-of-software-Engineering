@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Demographics Search Results</title>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="header">
+                <h2>Demographics Search Results</h2>
+            </div>
+        </div>
+        <div id ="container"> 
+            <div id="content">  
+                <h:form>
+                    <h:dataTable value ="#{queryUsersDemographics.getList()}" var ="s"
+                                styleClass = "demo-table"
+                                headerClass = "demo-table-header"
+                                rowClasses="demo-table-odd-row,demo-table-even-row">
+                        <h:column>
+                            <f:facet name ="header">First Name</f:facet>
+                            #{s.userFirstName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Last Name</f:facet>
+                            #{s.userLastName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Email</f:facet>
+                            #{s.userEmailId}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name ="header">Address</f:facet>
+                            #{s.userStreetAddress}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">City</f:facet>
+                            #{s.userCity}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">State</f:facet>
+                            #{s.userState}
+                        </h:column>
+                        <h:column>
+                            <f:facet name ="header">Zip</f:facet>
+                            #{s.userZip}
+                       </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div> 
+        </div>
+            <p><h:link outcome="demographicSearch" value="Back" /></p>   
+    </h:body>
+</html>
