@@ -43,36 +43,36 @@
                     <table>
                         <tr>
                             <h:outputLabel styleClass="col-xs-3" value="President First Name: "/>
-                            <h:inputText id = "presFirstName"  value="#" required="true" label = "presFirstName" requiredMessage="President First Name Required"/>
+                            <h:inputText id = "presFirstName"  value="#{addPresidentialCandidates.pres_first_name}" required="true" label = "presFirstName" requiredMessage="President First Name Required"/>
                             <td colspan="10"><h:message for="presFirstName" styleClass="error"/></td>
                             <br />
                         </tr>
                         <tr>
                             <h:outputLabel styleClass="col-xs-3" value="President Last Name: "/>
-                            <h:inputText id = "prestlastName"  value="#" required="true" label = "prestlastName" requiredMessage="President Last Name Required"/>
+                            <h:inputText id = "prestlastName"  value="#{addPresidentialCandidates.pres_last_name}" required="true" label = "prestlastName" requiredMessage="President Last Name Required"/>
                             <td colspan="10"><h:message for="prestlastName" styleClass="error"/></td>
                             <br />
                         </tr>
                         <tr>
                             <h:outputLabel styleClass="col-xs-3" value="President E-mail: "/>
-                            <h:inputText id = "presEmail"  value="#" required="true" label = "presEmail" requiredMessage="President E-mail Required"/>
+                            <h:inputText id = "presEmail"  value="#{addPresidentialCandidates.email}" required="true" label = "presEmail" requiredMessage="President E-mail Required"/>
                             <td colspan="10"><h:message for="presEmail" styleClass="error"/></td>
                             <br />
                         </tr>
                         <tr>
                             <h:outputLabel styleClass="col-xs-3" value="Vice President First Name: "/>
-                            <h:inputText id = "vpFrirstName"  value="#" required="true" label = "vpFrirstName" requiredMessage="Vice President FirstName Required"/>
+                            <h:inputText id = "vpFrirstName"  value="#{addPresidentialCandidates.vp_first_name}" required="true" label = "vpFrirstName" requiredMessage="Vice President FirstName Required"/>
                             <td colspan="10"><h:message for="vpFrirstName" styleClass="error"/></td>
                             <br />
                         </tr>
                         <tr>
                             <h:outputLabel styleClass="col-xs-3" value="Vice President Last Name: "/>
-                            <h:inputText id = "vpLastName"  value="#" required="true" label = "vpLastName" requiredMessage="Vice President Last Name Required"/>
+                            <h:inputText id = "vpLastName"  value="#{addPresidentialCandidates.vp_last_name}" required="true" label = "vpLastName" requiredMessage="Vice President Last Name Required"/>
                             <td colspan="10"><h:message for="vpLastName" styleClass="error"/></td>
                             <br />
                         </tr>
                         <tr>
-                            <td><h:commandButton value ="Submit" action="#"/> </td>
+                            <td><h:commandButton value ="Submit" action="#{addPresidentialCandidates.addCandidate()}"/> </td>
                         </tr>
                     </table>
                 </h:form>
