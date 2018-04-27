@@ -74,7 +74,7 @@ public class checkUserVoting extends ElectionDBUtil{
             }
         }
         
-        return "index.xhtml";
+        return "failure";
     }
     
 }

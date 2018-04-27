@@ -97,7 +97,7 @@ public class addPresidentialCandidates extends ElectionDBUtil{
             statement = connect().createStatement();
             String race = "United States President";
             int default_votes = 0;
-            SQL = "INSERT INTO pres_cand VALUES ('United States President','"+pres_first_name+"','"+pres_last_name+"','"+email+"','"+vp_first_name+"','"+vp_last_name+"','0')";
+            SQL = "INSERT INTO pres_cand (race,first_name,last_name,email,vp_first,vp_last) VALUES ('United States President','"+pres_first_name+"','"+pres_last_name+"','"+email+"','"+vp_first_name+"','"+vp_last_name+"')";
             statement.executeUpdate(SQL);
         } catch(Exception ex) {
             ex.printStackTrace();
