@@ -19,13 +19,13 @@
         <h:form>
             <p>
                <td>Zip Code</td> 
-               <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" required ="true" label = "Zip Code" requiredMessage="Zip Code  Required"/></td>
+               <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" label = "Zip Code"/></td>
                <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
                <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
             </p>
             <br></br>
              <p>
-               <h:commandLink value="Vote" action="userdashboard" />
+               <h:commandLink value="Vote" action="#{queryvoteelections.queryData(login.getLoginId())}" />
             </p>
         </h:form>
     </f:view>

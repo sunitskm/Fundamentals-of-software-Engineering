@@ -89,8 +89,10 @@ public class queryelections{
                 while(setTwo.next()){
                     cands += setTwo.getString(1) + " " + setTwo.getString(2) + ", ";
                 }
-                cands = cands.substring(0, cands.length()-2);
-                v.setCandidates(cands);
+                try{
+                    cands = cands.substring(0, cands.length()-2);
+                    v.setCandidates(cands);
+                } catch (Exception ex){ }
                 list.add(v);
             } 
         } catch(Exception ex) {
@@ -99,6 +101,8 @@ public class queryelections{
             }
             finally {
                 try {
+                    statement.close();
+                    statement2.close();
                     connection.close();
                 } catch (Exception e) {
                     e.printStackTrace();
