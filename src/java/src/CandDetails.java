@@ -10,52 +10,47 @@ package src;
  * @author Lenovo
  */
 public class CandDetails {
+    private int id;
     private String race;
     private String canFirstName;
     private String canLastName;  
-    private String canEmailId;
-    private String vpFirstName;
-    private String vpLastName;
+    private String state;
+    private String city;
+    private String zip;
     private int votes;
 
     public CandDetails() {
+        System.out.println("In cand detail");
     }
 
-    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, int votes) {
+    public CandDetails(int id, String race, String canFirstName, String canLastName, String state, String city, String zip, int votes) {
+        this.id = id;
         this.race = race;
         this.canFirstName = canFirstName;
         this.canLastName = canLastName;
-        this.canEmailId = canEmailId;
-        this.votes = votes;
-    }
-    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId) {
-        this.race = race; 
-        this.canFirstName = canFirstName;
-        this.canLastName = canLastName;
-        this.canEmailId = canEmailId;
-        this.votes = 0;
-    }
-    
-    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, String vpFirstName, String vpLastName, int votes) {
-        this.race = race;
-        this.canFirstName = canFirstName;
-        this.canLastName = canLastName;
-        this.canEmailId = canEmailId;
-        this.vpFirstName = vpFirstName;
-        this.vpLastName = vpLastName;
+        this.state = state;
+        this.city = city;
+        this.zip = zip;
         this.votes = votes;
     }
     
-    public CandDetails(String race, String canFirstName, String canLastName, String canEmailId, String vpFirstName, String vpLastName) {
+    public CandDetails(int id, String race, String canFirstName, String canLastName, String canEmailId, String state, String city, String zip) {
+        this.id = id;
         this.race = race;
         this.canFirstName = canFirstName;
         this.canLastName = canLastName;
-        this.canEmailId = canEmailId;
-        this.vpFirstName = vpFirstName;
-        this.vpLastName = vpLastName;
-        this.votes = 0;
+        this.state = state;
+        this.city = city;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
      public String getRace() {
         return race;
     }
@@ -80,13 +75,6 @@ public class CandDetails {
         this.canLastName = canLastName;
     }
 
-    public String getCanEmailId() {
-        return canEmailId;
-    }
-
-    public void setCanEmailId(String canEmailId) {
-        this.canEmailId = canEmailId;
-    }
      public int getVotes() {
         return votes;
     }
@@ -96,19 +84,27 @@ public class CandDetails {
     }
 
     
-    public String getVpFirstName() {
-        return vpFirstName;
+    public String getState() {
+        return state;
     }
 
-    public void setVpFirstName(String vpFirstName) {
-        this.vpFirstName = vpFirstName;
+    public void setState(String state) {
+        this.state = state;
     }
     
-    public String getVpLastName() {
-        return vpLastName;
+    public String getCity() {
+        return state;
     }
 
-    public void setVpLastName(String vpLastName) {
-        this.vpLastName = vpLastName;
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 }

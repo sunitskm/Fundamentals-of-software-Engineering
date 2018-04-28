@@ -19,37 +19,25 @@
     <div id ="container"> 
         <div id="content">  
         <h:form>
-       <h:dataTable value ="#{queryvoteelections.list}" var ="e"
+       <h:dataTable value ="#{electionvote.list}" var ="c"
                     styleClass = "demo-table"
                     headerClass = "demo-table-header"
                     rowClasses="demo-table-odd-row,demo-table-even-row">
             <h:column>
-               <f:facet name ="header">Choose Election</f:facet>
-               <h:commandButton value = "Vote" action ="#{electionvote.queryData(e.getRace())}"/>
+               <f:facet name ="header">Vote</f:facet>
+               <h:commandButton value = "Vote" action ="#{submitvote.submit(c.getId())}"/>
            </h:column>
            <h:column>
-               <f:facet name ="header">Election Id</f:facet>
-               #{e.eid}
+               <f:facet name ="header">Id</f:facet>
+               #{c.id}
            </h:column>
            <h:column>
-               <f:facet name ="header">Precinct</f:facet>
-               #{e.precinct}
-           </h:column>
-            <h:column>
                <f:facet name ="header">Race</f:facet>
-               #{e.race}
+               #{c.race}
            </h:column>
             <h:column>
-               <f:facet name ="header">Date</f:facet>
-               #{e.date}
-           </h:column>
-            <h:column>
-               <f:facet name ="header">Currently Ongoing</f:facet>
-               #{e.isOngoing}
-           </h:column>
-           <h:column>
-               <f:facet name ="header">Candidates</f:facet>
-               #{e.candidates}
+               <f:facet name ="header">Name</f:facet>
+               #{c.canFirstName}
            </h:column>
        </h:dataTable>
         </h:form>

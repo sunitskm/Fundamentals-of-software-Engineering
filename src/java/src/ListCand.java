@@ -25,7 +25,6 @@ public class ListCand extends ElectionDBUtil{
                 v.setRace(resultSet.getString(1));
                 v.setCanFirstName(resultSet.getString(2));
                 v.setCanLastName(resultSet.getString(3));
-                v.setCanEmailId(resultSet.getString(4));
                 v.setVotes(resultSet.getInt(5));
                 
                 list.add(v);
