@@ -22,7 +22,7 @@ public class ListCand extends ElectionDBUtil{
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 v = new CandDetails();
-                v.setCanId(Integer.parseInt(resultSet.getString(1)));
+               /* v.setCanId(Integer.parseInt(resultSet.getString(1)));
                 v.setCanFirstName(resultSet.getString(2));
                 v.setCanLastName(resultSet.getString(3));
                
@@ -33,7 +33,7 @@ public class ListCand extends ElectionDBUtil{
                 v.setCanPrecinct(resultSet.getString(7));
                 v.setCanState(resultSet.getString(8));
                 v.setCanRace(resultSet.getString(9));   
-                v.setCanInElection(resultSet.getString(10));   
+                v.setCanInElection(resultSet.getString(10));   */
                 
                 list.add(v);
                 System.out.println("Inside List candidate Hello");
@@ -58,7 +58,7 @@ public class ListCand extends ElectionDBUtil{
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 v = new CandDetails();
-                v.setCanId(Integer.parseInt(resultSet.getString(1)));
+               /* v.setCanId(Integer.parseInt(resultSet.getString(1)));
                 v.setCanFirstName(resultSet.getString(2));
                 v.setCanLastName(resultSet.getString(3));
                
@@ -69,7 +69,7 @@ public class ListCand extends ElectionDBUtil{
                 v.setCanPrecinct(resultSet.getString(7));
                 v.setCanState(resultSet.getString(8));
                 v.setCanRace(resultSet.getString(9));   
-                v.setCanInElection(resultSet.getString(10));   
+                v.setCanInElection(resultSet.getString(10));   */
                 
                 list.add(v);
                 System.out.println("Inside List candidate Bye");
