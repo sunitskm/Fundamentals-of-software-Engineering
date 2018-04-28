@@ -24,7 +24,7 @@ import java.sql.Statement;
 
 @ManagedBean   
 @SessionScoped
-public class queryelections implements Serializable{
+public class queryvoteelections implements Serializable{
     public static ArrayList<ElectionDetails> list = new ArrayList();
     Connection connection;
     Statement statement;

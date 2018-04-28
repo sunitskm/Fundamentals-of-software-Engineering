@@ -100,7 +100,8 @@ public class login {
     try{
         //System.out.println("Attermpting connection to database");
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
         statement = connection.createStatement(); 
         SQL = "Select * from USER01 where userid like ('" + loginId +"')";
         resultSet = statement.executeQuery(SQL);
@@ -133,16 +134,17 @@ public class login {
             String saltedPassword = SALT + loginPassword;
 		String hashedPassword = generateHash(saltedPassword);
                 System.out.println("Hashed Password" + hashedPassword);
-                loginPassword = hashedPassword;
+                //loginPassword = hashedPassword;
   
             if((loginPassword.equals(dbLoginPassword)) && (loginEnterAs.equals(dbLoginEnterAs)) ){
                System.out.println("Password is correct");
-                System.out.println(validateUserReg());
-                if(validateUserReg()=="NONE" && loginEnterAs.equals("User"))
+               String validated = validateUserReg();
+               System.out.println(validated);
+                if(validated.equals("NONE") && loginEnterAs.equals("User"))
                     return "userRegistration";
-                else if(validateUserReg()=="0" && loginEnterAs.equals("User"))
+                else if(validated.equals("0") && loginEnterAs.equals("User"))
                     return "success_reg";
-                else if((validateUserReg()=="1" && loginEnterAs.equals("User")))
+                else if((validated.equals("1") && loginEnterAs.equals("User")))
                     return "userdashboard";
                 else if(( loginEnterAs.equals("Admin")))
                     return "admindashboard";
@@ -169,33 +171,24 @@ public class login {
     public String validateUserReg(){
         String appr = "0";
         try{
-        //System.out.println("Attermpting connection to database");
-        Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
-        statement = connection.createStatement(); 
-        SQL = "Select * from USERREG where userid like ('" + loginId +"')";
-        resultSet = statement.executeQuery(SQL);
-        if(resultSet.next() && loginEnterAs == "User")
-            appr = resultSet.getString(11).toString();
-        else
-            return "NONE";
-       
-    }
-    catch(Exception ex){
-    ex.printStackTrace();
-    //System.out.println("Exception occured in the process");
-    }
-   /* finally {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }    
-        }*/
+            //System.out.println("Attermpting connection to database");
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+            statement = connection.createStatement(); 
+            SQL = "Select * from USERREG where userid like ('" + loginId +"')";
+            resultSet = statement.executeQuery(SQL);
+            if(resultSet.next() && loginEnterAs.equals("User"))
+                appr = resultSet.getString(11).toString();
+            else
+                return "NONE";
+        } catch(Exception ex){
+            ex.printStackTrace();
+        //System.out.println("Exception occured in the process");
+        }
         if(appr.equals("0"))
-        return "0";
+            return "0";
         else 
-        return "1";
+            return "1";
         
     }
      public static String generateHash(String input) {

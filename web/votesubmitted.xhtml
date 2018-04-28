@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Vote Submitted</title>
+    <h:outputStylesheet library ="css" name="style.css" />
+</h:head>
+<h:body style="background-color:#FFFFE9;">
+    <f:view>
+        <h2>Vote submitted!</h2>
+        <br></br>
+        <h:form>
+            <p>
+               <h:commandLink value="Return to dashboard" action="userdashboard" />
+            </p>
+
+             <p>
+               <h:commandLink value="Vote again" action="#{queryvoteelections.queryData(login.getLoginId())}" />
+            </p>
+        </h:form>
+    </f:view>
+</h:body>
+</html>
+
+

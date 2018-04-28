@@ -17,23 +17,24 @@ public class ListCand extends ElectionDBUtil{
         List<CandDetails> list = new ArrayList<CandDetails>();
         try{
             statement = connect().createStatement(); 
-        SQL = "Select * from CAND";
+        SQL = "Select * from candidates";
         CandDetails v;
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 v = new CandDetails();
-               /* v.setCanId(Integer.parseInt(resultSet.getString(1)));
+                v.setId(Integer.parseInt(resultSet.getString(1)));
                 v.setCanFirstName(resultSet.getString(2));
                 v.setCanLastName(resultSet.getString(3));
+                v.setVotes(resultSet.getInt(5));
                
-                v.setCanEmailId(resultSet.getString(4));
-                v.setCanZip(resultSet.getString(5));   
+                //v.setCanEmailId(resultSet.getString(4));
+                v.setZip(resultSet.getString(5));   
                 
-                v.setCanCity(resultSet.getString(6));
-                v.setCanPrecinct(resultSet.getString(7));
-                v.setCanState(resultSet.getString(8));
-                v.setCanRace(resultSet.getString(9));   
-                v.setCanInElection(resultSet.getString(10));   */
+                v.setCity(resultSet.getString(6));
+                //v.setCanPrecinct(resultSet.getString(7));
+                v.setState(resultSet.getString(8));
+                v.setRace(resultSet.getString(9));   
+                //v.setCanInElection(resultSet.getString(10));   
                 
                 list.add(v);
                 System.out.println("Inside List candidate Hello");
@@ -52,24 +53,24 @@ public class ListCand extends ElectionDBUtil{
         List<CandDetails> list = new ArrayList<CandDetails>();
         try{
             statement = connect().createStatement(); 
-        SQL = "Select * from CAND where state = ('"+state+"')" + 
+        SQL = "Select * from candidates where state = ('"+state+"')" + 
                 " and race = ('"+race+"')" + " and inElection = 'NO'";
         CandDetails v;
         resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 v = new CandDetails();
-               /* v.setCanId(Integer.parseInt(resultSet.getString(1)));
+                v.setId(Integer.parseInt(resultSet.getString(1)));
                 v.setCanFirstName(resultSet.getString(2));
                 v.setCanLastName(resultSet.getString(3));
                
-                v.setCanEmailId(resultSet.getString(4));
-                v.setCanZip(resultSet.getString(5));   
+               // v.setCanEmailId(resultSet.getString(4));
+                v.setZip(resultSet.getString(5));   
                 
-                v.setCanCity(resultSet.getString(6));
-                v.setCanPrecinct(resultSet.getString(7));
-                v.setCanState(resultSet.getString(8));
-                v.setCanRace(resultSet.getString(9));   
-                v.setCanInElection(resultSet.getString(10));   */
+                v.setCity(resultSet.getString(6));
+                ///v.setCanPrecinct(resultSet.getString(7));
+                v.setState(resultSet.getString(8));
+                v.setRace(resultSet.getString(9));   
+                //v.setCanInElection(resultSet.getString(10));   */
                 
                 list.add(v);
                 System.out.println("Inside List candidate Bye");
