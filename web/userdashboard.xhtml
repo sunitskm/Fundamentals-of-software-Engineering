@@ -21,7 +21,7 @@
                <td>Zip Code</td> 
                <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" label = "Zip Code"/></td>
                <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
-               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData(login.getLoginId())}" />
+               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
             </p>
             <br></br>
              <p>

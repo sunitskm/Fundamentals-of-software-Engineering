@@ -100,7 +100,7 @@ public class login {
     try{
         //System.out.println("Attermpting connection to database");
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
         statement = connection.createStatement(); 
         SQL = "Select * from USER01 where userid like ('" + loginId +"')";
@@ -139,13 +139,14 @@ public class login {
             if((loginPassword.equals(dbLoginPassword)) && (loginEnterAs.equals(dbLoginEnterAs)) ){
                System.out.println("Password is correct");
                String validated = validateUserReg();
-               System.out.println(validated);
                 if(validated.equals("NONE") && loginEnterAs.equals("User"))
                     return "userRegistration";
                 else if(validated.equals("0") && loginEnterAs.equals("User"))
                     return "success_reg";
                 else if((validated.equals("1") && loginEnterAs.equals("User")))
                     return "userdashboard";
+                else if(( loginEnterAs.equals("Manager")))
+                    return "managerdashboard";
                 else if(( loginEnterAs.equals("Admin")))
                     return "admindashboard";
                 else

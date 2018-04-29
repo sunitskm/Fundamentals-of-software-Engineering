@@ -24,7 +24,7 @@ import java.sql.Statement;
 
 @ManagedBean   
 @SessionScoped
-public class queryusers{
+public class queryusersmanager{
 
     /**
      * @return the uid
@@ -98,7 +98,7 @@ public class queryusers{
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from userreg where first_name like ('" + firstName +"') and last_name like ('" + lastName + "') and ssn like ('" + ssn + "') and zip like ('" + zipcode + "')";
             resultSet = statement.executeQuery(SQL);
@@ -130,7 +130,7 @@ public class queryusers{
                     e.printStackTrace();
                 }    
             }
-    return "listqueryusers";
+    return "listqueryusersmanager";
     }
 }
     
