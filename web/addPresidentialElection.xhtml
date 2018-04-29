@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Adding Presidential Election</title>
+        <style>
+            .error {color:red}
+        </style>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="admindashboard.xhtml">Home</a></li>
+              <li><a href="approveUsers.xhtml">Approve Users</a></li>
+              <li class="active"><a href="selectRaceType.xhtml">Add Candidates</a></li>
+              <li><a href="#">Ballot Configuration</a></li>
+            </ul>
+            <div class="navbar-brand">
+                <a href="login.xhtml">Logout</a>
+            </div>
+        </nav>
+        <div id="wrapper">
+            <div id="header">
+                <h2>Adding Presidential Election</h2>
+            </div>
+        </div>
+        <div id ="container"> 
+            <div id="content">  
+                <h:form>
+                    <table>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Election Type: "/>
+                            <h:inputText id = "election_type"  value="#{addPresidentialElection.electionType}" required="true" label = "election_type" requiredMessage="Election Type Required"/>
+                            <td colspan="10"><h:message for="election_type" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Race: "/>
+                            <h:inputText id = "race"  value="#{addPresidentialElection.race}" required="true" label = "race" requiredMessage="Race Required"/>
+                            <td colspan="10"><h:message for="race" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <h:outputLabel styleClass="col-xs-3" value="Date: "/>
+                            <h:inputText id = "date"  value="#{addPresidentialElection.date}" required="true" label = "date" requiredMessage="Date Required"/>
+                            <td colspan="10"><h:message for="date" styleClass="error"/></td>
+                            <br />
+                        </tr>
+                        <tr>
+                            <td><h:commandButton value ="Submit" action="#{addPresidentialElection.addElection()}"/> </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
