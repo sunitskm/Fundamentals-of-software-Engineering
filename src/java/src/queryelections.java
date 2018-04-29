@@ -48,27 +48,20 @@ public class queryelections implements Serializable{
         return list;
     }
     
-    public String queryData(String uid){
-        System.out.print(uid);
-        return dbData(uid);
+    public String queryData(){
+        int zip = Integer.parseInt(zipcode);
+        return dbData(zip);
     }
-    public String dbData(String uid){
+    public String dbData(int zipcode){
         ElectionDetails v;
         CandDetails c; 
-        System.out.println(uid);
         list = new ArrayList<>();
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
-            statement = connection.createStatement(); 
-            
-            SQL = "select zip from userreg where userid like ('"+ uid +"')";
-            resultSet = statement.executeQuery(SQL);
-            resultSet.next();
-            zipcode = resultSet.getString(1);
-          
+            statement = connection.createStatement();      
             
             SQL = "select precinct_name from prec_zip where zip_code like " + zipcode;
             resultSet = statement.executeQuery(SQL);
@@ -120,7 +113,7 @@ public class queryelections implements Serializable{
                     e.printStackTrace();
                 }    
             }
-    return "listvoteelections";
+    return "listupcomingelections";
     }
 }
     

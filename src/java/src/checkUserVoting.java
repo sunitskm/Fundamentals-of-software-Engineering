@@ -61,7 +61,7 @@ public class checkUserVoting extends ElectionDBUtil{
             statement = connect().createStatement();
             SQL = "UPDATE user_voting SET voter_status='1' where userid like ('"+ uid +"')";
             statement.executeUpdate(SQL);
-            return "listqueryusers";
+            return "listqueryusersmanager";
             
         } catch(Exception ex) {
             ex.printStackTrace();
