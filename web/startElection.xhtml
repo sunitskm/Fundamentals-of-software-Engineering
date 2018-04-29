@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+<h:head>
+    <title>Start Election</title>
+    <h:outputStylesheet library ="css" name="style2.css" />
+</h:head>
+<h:body>
+        <div id="wrapper">
+            <div id="header">
+        <h2>Inactive Elections</h2>
+            </div>
+        </div>
+    <div id ="container"> 
+        <div id="content">  
+        <h:form>
+            <h:dataTable value ="#{startEndElection.getNonOngoingList()}" var ="s"
+                    styleClass = "demo-table"
+                    headerClass = "demo-table-header"
+                    rowClasses="demo-table-odd-row,demo-table-even-row">
+           <h:column>
+               <f:facet name ="header">Election Id</f:facet>
+               #{s.getEid()}
+           </h:column>
+           <h:column>
+               <f:facet name ="header">Precinct</f:facet>
+               #{s.getPrecinct()}
+           </h:column>
+           <h:column>
+               <f:facet name ="header">Race</f:facet>
+               #{s.getRace()}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Date</f:facet>
+               #{s.getDate()}
+           </h:column>
+            <h:column>
+               <f:facet name ="header">Currently Ongoing</f:facet>
+               #{s.getIsOngoing()}
+           </h:column>
+            <h:column>
+                <f:facet name="header">End Election</f:facet>
+                <h:commandButton value = "Start" action ="#{startEndElection.start(s.getEid())}"/>
+            </h:column>
+       </h:dataTable>
+        </h:form>
+        </div> 
+    </div>
+        <p><h:link outcome="admindashboard" value="Back" /></p>
+            
+        
+   
+</h:body>
+</html>

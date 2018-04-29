@@ -173,7 +173,7 @@ public class login {
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
             statement = connection.createStatement(); 
             SQL = "Select * from USERREG where userid like ('" + loginId +"')";
             resultSet = statement.executeQuery(SQL);

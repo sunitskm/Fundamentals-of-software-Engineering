@@ -16,10 +16,12 @@ public class ListCand extends ElectionDBUtil{
     public List<CandDetails> listCand(){
         List<CandDetails> list = new ArrayList<CandDetails>();
         try{
+            System.out.println("inside list cand try\n");
             statement = connect().createStatement(); 
         SQL = "Select * from candidates";
         CandDetails v;
         resultSet = statement.executeQuery(SQL);
+            System.out.println("resultSet.isBefore(): " + resultSet.isBeforeFirst());
             while (resultSet.next()) {
                 v = new CandDetails();
                 v.setId(Integer.parseInt(resultSet.getString(1)));
