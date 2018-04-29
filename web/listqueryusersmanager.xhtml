@@ -64,11 +64,24 @@
                <f:facet name ="header">Approved</f:facet>
                #{s.userApproved}
            </h:column>
+           <h:column>
+               <f:facet name="header">Authorize Voter</f:facet>
+               <c:choose>
+                   <c:when test="#{checkUserVoting.isApprovedToVote(queryusersmanager.uid)}">
+                       Authorized
+                   </c:when>
+                   <c:otherwise>
+                        <h:commandLink value ="Authorize" 
+                           onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
+                           action ="#{checkUserVoting.approveVoter(queryusersmanager.uid)}" />
+                   </c:otherwise>
+               </c:choose>
+           </h:column>
        </h:dataTable>
         </h:form>
         </div> 
     </div>
-        <p><h:link outcome="queryusers" value="Back" /></p>
+        <p><h:link outcome="queryusersmanager" value="Back" /></p>
             
         
    
