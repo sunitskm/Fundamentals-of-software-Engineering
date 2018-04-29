@@ -22,6 +22,8 @@ import java.util.List;
 public class startEndElection extends ElectionDBUtil implements Serializable {
     private List<ElectionDetails> ongoingList;
     private List<ElectionDetails> nonOngoingList;
+    private CandDetails v;
+    private List<CandDetails> list = new ArrayList<>();
     
     public startEndElection() { 
         updateLists();
@@ -34,6 +36,38 @@ public class startEndElection extends ElectionDBUtil implements Serializable {
             SQL = "UPDATE election SET is_ongoing='0' WHERE id like ('"+ eid +"')";
             statement.executeUpdate(SQL);
             updateLists();
+            
+            statement = connect().createStatement();
+            SQL = "select race from election where id like ('" + eid + "')";
+            resultSet = statement.executeQuery(SQL);
+            resultSet.next();
+            String race = resultSet.getString(1);
+            
+            statement = connect().createStatement();
+            SQL = "select id, votes from candidates where race like ('" + race + "')";
+            resultSet = statement.executeQuery(SQL);
+            while (resultSet.next()){
+                v = new CandDetails();
+                v.setId(resultSet.getInt(1));
+                v.setVotes(resultSet.getInt(2));
+                list.add(v);
+            }
+            
+            int max = -1;
+            int winner = 0;
+            for (CandDetails c : list){
+                System.out.print(c.getId());
+                if (c.getVotes() > max){
+                    max = c.getVotes();
+                    winner = c.getId();
+                }    
+            }
+            System.out.println(winner);
+            
+            statement = connect().createStatement();
+            SQL = "UPDATE election SET winner_id = ('" + winner + "') where id like ('" + eid + "')";
+            statement.executeUpdate(SQL);
+            
             return "endElection";
         } catch(Exception ex) {
             ex.printStackTrace();

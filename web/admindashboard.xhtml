@@ -34,7 +34,7 @@
             <div class="container">
                 <h:form>
                     <p>
-                       <h:commandLink value="Approve Users" action="listunapprovedusers" />
+                       <h:commandLink value="Approve Users" action="approveUsers" />
                     </p>
                     <p>
                        <h:commandLink value="Search Users" action="queryusers" />
@@ -46,13 +46,19 @@
                        <h:commandLink value="List Candidates" action="listCand" />
                     </p>
                     <p>
-                       <h:commandLink value="Create Ballot" action="createBallot" />
-                    </p>
-                    <p>
                        <h:commandLink value="Add Precinct" action="addPrecinct" />
                     </p>
                     <p>
-                       <h:commandLink value="Create Election" action="create_election" />
+                       <h:commandLink value="Create Election" action="addElection" />
+                    </p>
+                    <p>
+                       <h:commandLink value="Start Election" action="startElection" />
+                    </p>
+                    <p>
+                       <h:commandLink value="End Election" action="endElection" />
+                    </p>
+                    <p>
+                       <h:commandLink value="View Results" action="results" />
                     </p>
                     <p>
                         <h:commandLink value="Start Election" action="startElection"/>
