@@ -5,7 +5,6 @@
  */
 package src;
 
-import com.mysql.jdbc.StringUtils;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.Date;
