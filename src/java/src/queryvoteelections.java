@@ -49,8 +49,40 @@ public class queryvoteelections implements Serializable{
     }
     
     public String queryData(String uid){
-        System.out.print(uid);
-        return dbData(uid);
+        try {
+            System.out.println("in queryData from vote link in userdash");
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+            statement = connection.createStatement();
+            SQL = "SELECT * FROM user_voting WHERE userid like ('"+ uid +"')";
+            resultSet = statement.executeQuery(SQL);
+            //System.out.println("resultSet.getString()" + resultSet.getString(5));
+            if(!resultSet.isBeforeFirst()) { // in this case user is not register
+                System.out.println("user is not register.");
+                return "failure";
+            } 
+            resultSet.next();
+            if(resultSet.getString(5).equals("1")) { // in this case user is registered and authorized to vote
+                return dbData(uid);
+            } else { // in this case user is registered, but not authorized to vote
+                System.out.println("user is not authorized to vote.");
+                return "notAuthorizedFailure";
+            }
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                connection.close();
+                resultSet.close();
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        return "failure";
+        //System.out.print(uid);
+        //return dbData(uid);
     }
     public String dbData(String uid){
         ElectionDetails v;
@@ -60,7 +92,8 @@ public class queryvoteelections implements Serializable{
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
             statement = connection.createStatement(); 
             
@@ -77,6 +110,18 @@ public class queryvoteelections implements Serializable{
             
             SQL = "select * from election where (race like 'United States President' or precinct like ('" + precinct + "')) and is_ongoing like 1";
             resultSet = statement.executeQuery(SQL);
+            
+            Statement queryUserVoting = connection.createStatement();
+            String userVotingSQL = "SELECT * FROM user_voting WHERE userid like('"+ uid +"')";
+            ResultSet queryUserResults = queryUserVoting.executeQuery(userVotingSQL);
+            queryUserResults.next();
+            int votedForSenate = Integer.parseInt(queryUserResults.getString(3));
+            int votedForPresident = Integer.parseInt(queryUserResults.getString(2));
+            int votedForHouse = Integer.parseInt(queryUserResults.getString(4));
+            System.out.println("votedForSenate: "+votedForSenate);
+            System.out.println("votedForPresident: "+votedForPresident);
+            System.out.println("votedForHouse: "+votedForHouse);
+            
 
             while (resultSet.next()) {
                 v = new ElectionDetails();
@@ -107,7 +152,14 @@ public class queryvoteelections implements Serializable{
                     cands = cands.substring(0, cands.length()-2);
                     v.setCandidates(cands);
                 } catch (Exception ex){ }
-                list.add(v);
+                
+                String[] splitRace = resultSet.getString(3).split(" ");
+                if((splitRace[0].equals("United") && votedForPresident == 0)
+                        || (splitRace[0].equals("Senate") && votedForSenate == 0)
+                        || (splitRace[0].equals("House") && votedForHouse == 0)) {
+                        list.add(v);
+                }
+                //list.add(v);
             } 
         } catch(Exception ex) {
             ex.printStackTrace();

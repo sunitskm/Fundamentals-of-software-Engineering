@@ -15,11 +15,30 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class addElection {
+public class addElection extends ElectionDBUtil{
     private String precinct;
     private String race;
     private String date;
 
+    public String add() {
+        try {
+            statement = connect().createStatement();
+            SQL = "INSERT INTO election (precinct,race,date) VALUES ('"+ precinct +"','"+ race +"','"+ race +"')";
+            statement.executeUpdate(SQL);
+            return "admindashboard";
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                connection.close();
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return "failure";
+    }
+    
     /**
      * @return the precinct
      */

@@ -20,7 +20,7 @@
     <div id ="container"> 
         <div id="content">  
         <h:form>
-            <h:dataTable value ="#{startEndElection.getOngoingList()}" var ="s"
+            <h:dataTable value ="#{startEndElection.getNonOngoingList()}" var ="s"
                     styleClass = "demo-table"
                     headerClass = "demo-table-header"
                     rowClasses="demo-table-odd-row,demo-table-even-row">
@@ -46,7 +46,7 @@
            </h:column>
             <h:column>
                 <f:facet name="header">End Election</f:facet>
-                <h:commandButton value = "End" action ="#{startEndElection.start(s.getEid())}"/>
+                <h:commandButton value = "Start" action ="#{startEndElection.start(s.getEid())}"/>
             </h:column>
        </h:dataTable>
         </h:form>
