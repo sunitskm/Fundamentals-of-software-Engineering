@@ -34,7 +34,7 @@ public class submitvote implements Serializable{
     String cands;
     CandDetails c;
     
-    public String submit(int id){
+    public String submit(int id, String uid){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
@@ -42,11 +42,39 @@ public class submitvote implements Serializable{
             statement = connection.createStatement(); 
             SQL = "select * from candidates where id like '" + id + "'";
             resultSet = statement.executeQuery(SQL);
-
+            
             resultSet.next();
+            System.out.println("resultSet(2): "+resultSet.getString(2));
+            System.out.println("userid: " + uid);
+            //statement.close();
+            
             int votes = resultSet.getInt(8);
             System.out.println(votes);
             votes+=1;
+            
+            if(resultSet.getString(2).equals("United States President")) {
+                statement.close();
+                statement = connection.createStatement();
+                SQL = "UPDATE user_voting SET presidential='1'";
+                statement.executeUpdate(SQL);
+            } else {
+                String[] splitRace = resultSet.getString(2).split(" ");
+                for(int i = 0; i < splitRace.length; i++) {
+                    System.out.println("splitRace " + i + ": " + splitRace[i]);
+                }
+
+                statement.close();
+                statement = connection.createStatement();
+                if(splitRace[0].equals("Senate")) {               
+                    SQL = "UPDATE user_voting SET senate='1' WHERE userid like('"+ uid +"')";
+                    statement.executeUpdate(SQL);
+                } else if(splitRace[0].equals("House")) {
+                   SQL = "UPDATE user_voting SET house_of_rep='1' WHERE userid like('"+ uid +"')";
+                    statement.executeUpdate(SQL); 
+                }
+                
+            }
+            
             
             SQL = "update candidates set votes = ? where id = ?";
             PreparedStatement stmt = connection.prepareStatement(SQL); 

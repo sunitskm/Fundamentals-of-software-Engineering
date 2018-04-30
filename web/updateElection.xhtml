@@ -10,7 +10,7 @@ and open the template in the editor.
     xmlns:h ="http://xmlns.jcp.org/jsf/html"
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Add Election</title>
+        <title>Update Election</title>
         <style>
             .error {color:red}
         </style>
@@ -18,26 +18,29 @@ and open the template in the editor.
     </h:head>
     <h:body style="background-color:#FFFFE9;">
         <div>
-            <h1>Please enter the following details</h1>
-            <p> For any federal elections(e.g. United States President) for Precinct type All</p>
+            <h1>Enter the ID of the election you wish to update</h1>
+            <p>Enter any details that need to be changed; leave unchanged details blank</p>
         </div>
         <div>
             <h:form>
+                Election Id <h:inputText id="id" value="#{updateElection.id}" required="true" label="id" requiredMessage="Election Id" />
+                <h:message for="id" styleClass="error" />
+                <br /><br />
                 
-                Precinct <h:inputText id="precinct" value="#{addElection.precinct}" required="true" label="precinct" requiredMessage="Precinct Requiredd" />
+                Precinct <h:inputText id="precinct" value="#{updateElection.precinct}" label="precinct"/>
                 <h:message for="precinct" styleClass="error" />
                 <br /><br />
                 
-                Race <h:inputText id="race" value="#{addElection.race}" required="true" label="race" requiredMessage="Race Required" />
+                Race <h:inputText id="race" value="#{updateElection.race}" label="race"/>
                 <h:message for="race" styleClass="error" />
                 <br /><br />
                 
-                Date <h:inputText id = "date" value="#{addElection.date}" required = "true" label = "date" requiredMessage="Date Required"/>
+                Date <h:inputText id = "date" value="#{updateElection.date}" label = "date"/>
                 <h:message for="date" styleClass="error" />
                 <br /><br />
 
-                <h:commandButton value ="Add Election" onclick ="if (!confirm('Are you sure you want to add the election?')) return false"
-                                 action ="#{addElection.add()}" /> 
+                <h:commandButton value ="Add Election" onclick ="if (!confirm('Are you sure you want to update these election details?')) return false"
+                                 action ="#{updateElection.update()}" /> 
             
               
                 

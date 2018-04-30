@@ -15,17 +15,31 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class addElection extends ElectionDBUtil{
+public class updateElection extends ElectionDBUtil{
     private String precinct;
     private String race;
     private String date;
+    private int id;
 
-    public String add() {
+    public String update() {
         try {
             statement = connect().createStatement();
-            SQL = "INSERT INTO election (precinct,race,date) VALUES ('"+ precinct +"','"+ race +"','"+ date +"')";
-            statement.executeUpdate(SQL);
-            return "admindashboard";
+            
+            if (!(precinct.equals(""))){
+                SQL = "UPDATE election SET precinct = '" + precinct + "' where id like '" + id + "'";
+                statement.executeUpdate(SQL);
+            }
+            
+            if (!(race.equals(""))){
+                SQL = "UPDATE election SET race = '"+ race +"' where id like '" + id + "'";
+                statement.executeUpdate(SQL);
+            }
+            
+            if (!(date.equals(""))){
+                SQL = "UPDATE election SET date = '" + race + "' where id like '" + id + "'";
+                statement.executeUpdate(SQL);
+            }
+            
         } catch(Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -34,9 +48,9 @@ public class addElection extends ElectionDBUtil{
                 connection.close();
             } catch(Exception ex) {
                 ex.printStackTrace();
-            }
+            } 
         }
-        return "failure";
+        return "admindashboard";
     }
     
     /**
@@ -80,5 +94,12 @@ public class addElection extends ElectionDBUtil{
     public void setDate(String date) {
         this.date = date;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }   
 }

@@ -18,41 +18,43 @@ and open the template in the editor.
     </h:head>
     <h:body style="background-color:#FFFFE9;">
         <div>
-            <h1>Please enter the following details</h1>
-            <p> For any federal elections(e.g. United States President) for State and City type All and Zip Code type 00000</p>
+            <h1>Please enter the ID of the candidate you would like to update</h1>
+            <p> Enter any details that need to be changed; leave unchanged details blank</p>
         </div>
         <div>
             <h:form>
+                Candidate Id <h:inputText id="id" value="#{updateCandidates.id}" required="true" label="id" requiredMessage="Id Required" />
+                <h:message for="id" styleClass="error" />
+                <br /><br />
                 
-                
-                Electoral Race <h:inputText id="race" value="#{addCandidate.race}" required="true" label="race" requiredMessage="Race Required" />
+                Electoral Race <h:inputText id="race" value="#{updateCandidates.race}" label="race"/>
                 <h:message for="race" styleClass="error" />
                 <br /><br />
                 
-                First Name <h:inputText id = "canFirstName" value="#{addCandidate.firstName}" required = "true" label = "First Name" requiredMessage="First Name Required"/>
+                First Name <h:inputText id = "canFirstName" value="#{updateCandidates.firstName}" label = "First Name"/>
                 <h:message for="canFirstName" styleClass="error" />
                 <br /><br />
                 
-                Last Name <h:inputText id = "canLastName" value="#{addCandidate.lastName}" required="true" label="candLastName" requiredMessage="Last Name Required"/>
+                Last Name <h:inputText id = "canLastName" value="#{updateCandidates.lastName}" label="candLastName"/>
                 <h:message for="candLastName" styleClass="error" />
                 <br /><br />
 
-                State <h:inputText id ="canState" value ="#{addCandidate.state}" required = "true" label = "State" requiredMessage="State Required"/>
+                State <h:inputText id ="canState" value ="#{updateCandidates.state}" label = "State"/>
                 <h:message for="canState" styleClass="error" />
                 <br/><br />
                 
-                City <h:inputText id ="canCity" value ="#{addCandidate.city}" required = "true" label = "City" requiredMessage="City Required"/>
+                City <h:inputText id ="canCity" value ="#{updateCandidates.city}" label = "City"/>
                 <h:message for="canCity" styleClass="error" />
                 <br /><br />
                 
-                Zip Code <h:inputText id ="canZip" value ="#{addCandidate.zip}" required = "true" label = "Zip Code" requiredMessage="Zip Code Required">
-                    <f:validateLength minimum ="5" maximum ="5"/>
+                Zip Code <h:inputText id ="canZip" value ="#{updateCandidates.zip}" label = "Zip Code" >
+                <f:validateLength maximum ="5"/>
                 </h:inputText>
                 <h:message for="canZip" styleClass="error" />
                 <br/><br/>
 
-                <h:commandButton value ="Add Candidate" onclick ="if (!confirm('Are you sure you want to add the candidate?')) return false"
-               action ="#{addCandidate.addCandidate()}" /> 
+                <h:commandButton value ="Update Candidate" onclick ="if (!confirm('Are you sure you want to update these candidate details?')) return false"
+               action ="#{updateCandidates.update()}" /> 
             
               
                 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang ="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h ="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Update Address</title>
+        <style>
+            .error {color:red}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
+        <div>
+            <p> Enter any details that need to be changed; leave unchanged details blank</p>
+        </div>
+        <div>
+            <h:form>
+                User Id: <h:outputText id="id" value="#{login.getLoginId()}"/>
+                <h:message for="id" styleClass="error" />
+                <br /><br />
+                
+                Street Address <h:inputText id ="address" value ="#{updateUsers.address}" label = "Address"/>
+                <h:message for="address" styleClass="error" />
+                <br/><br />
+                
+                City <h:inputText id ="city" value ="#{updateUsers.city}" label = "City"/>
+                <h:message for="city" styleClass="error" />
+                <br /><br />
+
+                State <h:inputText id ="state" value ="#{updateUsers.state}" label = "State"/>
+                <h:message for="state" styleClass="error" />
+                <br/><br />
+                
+                Zip Code <h:inputText id ="zip" value ="#{updateUsers.zip}" label = "Zip Code" >
+                    <f:validateLength maximum="5"/>
+                </h:inputText>
+                <h:message for="zip" styleClass="error" />
+                <br/><br/>
+
+                <h:commandButton value ="Update Details" onclick ="if (!confirm('Are you sure you want to update your user details?')) return false"  
+                action ="#{updateUsers.update(login.getLoginId())}" /> 
+            </h:form>
+        </div>
+        
+        <div>
+            <h:form>
+            <p>
+               <p><h:link outcome="userdashboard" value="Back" /></p>
+            </p>
+            </h:form>
+        </div>
+    </h:body>
+</html>
