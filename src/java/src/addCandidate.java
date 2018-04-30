@@ -123,7 +123,7 @@ public class addCandidate extends ElectionDBUtil{
                 ex.printStackTrace();
             }
         }
-        return "success";
+        return "admindashboard";
     }
     
 }

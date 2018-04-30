@@ -148,7 +148,7 @@ public class login {
                 else if((validated.equals("-1") && loginEnterAs.equals("User")))
                     return "userRegistration";
                 else if(( loginEnterAs.equals("Manager")))
-                    return "managerdashboard";
+                    return "managerDashboard";
                 else if(( loginEnterAs.equals("Admin")))
                     return "admindashboard";
                 else
