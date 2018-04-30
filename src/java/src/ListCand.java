@@ -23,19 +23,13 @@ public class ListCand extends ElectionDBUtil{
             while (resultSet.next()) {
                 v = new CandDetails();
                 v.setId(Integer.parseInt(resultSet.getString(1)));
-                v.setCanFirstName(resultSet.getString(2));
-                v.setCanLastName(resultSet.getString(3));
-                v.setVotes(resultSet.getInt(5));
-               
-                //v.setCanEmailId(resultSet.getString(4));
-                v.setZip(resultSet.getString(5));   
-                
+                v.setRace(resultSet.getString(2));
+                v.setCanFirstName(resultSet.getString(3));
+                v.setCanLastName(resultSet.getString(4));
+                v.setState(resultSet.getString(5));
                 v.setCity(resultSet.getString(6));
-                //v.setCanPrecinct(resultSet.getString(7));
-                v.setState(resultSet.getString(8));
-                v.setRace(resultSet.getString(9));   
-                //v.setCanInElection(resultSet.getString(10));   
-                
+                v.setZip(resultSet.getString(7)); 
+                v.setVotes(resultSet.getInt(8));
                 list.add(v);
                 System.out.println("Inside List candidate Hello");
     } 
@@ -47,41 +41,4 @@ public class ListCand extends ElectionDBUtil{
         }
         
     }
-    
-    public List<CandDetails> listCandStateElection(String race, String state){
-        System.out.println("Inside listCandStateelection of list cand" + race + state);
-        List<CandDetails> list = new ArrayList<CandDetails>();
-        try{
-            statement = connect().createStatement(); 
-        SQL = "Select * from candidates where state = ('"+state+"')" + 
-                " and race = ('"+race+"')" + " and inElection = 'NO'";
-        CandDetails v;
-        resultSet = statement.executeQuery(SQL);
-            while (resultSet.next()) {
-                v = new CandDetails();
-                v.setId(Integer.parseInt(resultSet.getString(1)));
-                v.setCanFirstName(resultSet.getString(2));
-                v.setCanLastName(resultSet.getString(3));
-               
-               // v.setCanEmailId(resultSet.getString(4));
-                v.setZip(resultSet.getString(5));   
-                
-                v.setCity(resultSet.getString(6));
-                ///v.setCanPrecinct(resultSet.getString(7));
-                v.setState(resultSet.getString(8));
-                v.setRace(resultSet.getString(9));   
-                //v.setCanInElection(resultSet.getString(10));   */
-                
-                list.add(v);
-                System.out.println("Inside List candidate Bye");
-             } 
-           
-            return list;
-        }
-        catch(Exception e){
-            return null;
-        }
-        
-    }
-    
 }

@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class userRegistration {
+public class userRegistration implements Serializable {
     
     private String userFirstName;
     private String userLastName;
@@ -114,7 +115,7 @@ public class userRegistration {
          try{
              System.out.println("Inside try");
              Class.forName("com.mysql.jdbc.Driver");
-             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
+             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
              
                  System.out.println("Data Source is not null");
                  

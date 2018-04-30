@@ -100,7 +100,7 @@ public class login {
     try{
         //System.out.println("Attermpting connection to database");
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
         statement = connection.createStatement(); 
         SQL = "Select * from USER01 where userid like ('" + loginId +"')";
@@ -134,7 +134,7 @@ public class login {
             String saltedPassword = SALT + loginPassword;
 		String hashedPassword = generateHash(saltedPassword);
                 System.out.println("Hashed Password" + hashedPassword);
-                //loginPassword = hashedPassword;
+                loginPassword = hashedPassword;
   
             if((loginPassword.equals(dbLoginPassword)) && (loginEnterAs.equals(dbLoginEnterAs)) ){
                System.out.println("Password is correct");
@@ -145,6 +145,8 @@ public class login {
                     return "success_reg";
                 else if((validated.equals("1") && loginEnterAs.equals("User")))
                     return "userdashboard";
+                else if((validated.equals("-1") && loginEnterAs.equals("User")))
+                    return "userRegistration";
                 else if(( loginEnterAs.equals("Manager")))
                     return "managerdashboard";
                 else if(( loginEnterAs.equals("Admin")))
@@ -174,7 +176,7 @@ public class login {
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from USERREG where userid like ('" + loginId +"')";
             resultSet = statement.executeQuery(SQL);
@@ -188,7 +190,9 @@ public class login {
         }
         if(appr.equals("0"))
             return "0";
-        else 
+        else if(appr.equals("-1"))
+            return "-1";
+        else
             return "1";
         
     }

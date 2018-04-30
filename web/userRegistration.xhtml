@@ -37,7 +37,7 @@ and open the template in the editor.
             <h:form styleClass="form-horizontal">
                 <div class="col-xs-5">
                     <div class="form-group">
-                        User Id <h:inputText id="userId" value="#{login.loginId}" styleClass="form-control"/>
+                        User Id <h:outputText id="userId" value="#{login.loginId}" styleClass="form-control"/>
                     </div>
                     <div class="form-group">
                         First Name <h:inputText id = "userFirstName" value="#{userRegistration.userFirstName}" styleClass="form-control" required = "true" label = "First Name" requiredMessage="First Name Required"/>

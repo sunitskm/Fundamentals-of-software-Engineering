@@ -95,7 +95,7 @@ public class register {
          try{
              System.out.println("Inside try");
              Class.forName("com.mysql.jdbc.Driver");
-             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
              
                  System.out.println("Data Source is not null");
