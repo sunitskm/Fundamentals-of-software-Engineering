@@ -54,11 +54,12 @@ public class ApproveReject extends ElectionDBUtil{
         
         try{
              statement = connect().createStatement(); 
-        SQL = "Select email_id from USER01 where userid like ('" + uid +"')";
+        SQL = "Select email_id, first_name from userreg where userid like ('" + uid +"')";
         resultSet = statement.executeQuery(SQL);
         resultSet.next();
         String email = resultSet.getString(1).toString();
-        sendEmail.sendApprovedEmail(email);
+        String first_name = resultSet.getString(2).toString();
+        sendEmail.sendApprovedEmail(email,first_name);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -101,11 +102,12 @@ public class ApproveReject extends ElectionDBUtil{
         
         try{
              statement = connect().createStatement(); 
-        SQL = "Select email_id from USER01 where userid like ('" + uid +"')";
+        SQL = "Select email_id,first_name from userreg where userid like ('" + uid +"')";
         resultSet = statement.executeQuery(SQL);
         resultSet.next();
         String email = resultSet.getString(1).toString();
-        sendEmail.sendRejectedEmail(email);
+        String first_name = resultSet.getString(2).toString();
+        sendEmail.sendRejectedEmail(email,first_name);
         }
         catch(Exception e){
             e.printStackTrace();
