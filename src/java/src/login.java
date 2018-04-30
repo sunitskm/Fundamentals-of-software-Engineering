@@ -145,6 +145,8 @@ public class login {
                     return "success_reg";
                 else if((validated.equals("1") && loginEnterAs.equals("User")))
                     return "userdashboard";
+                else if((validated.equals("-1") && loginEnterAs.equals("User")))
+                    return "userRegistration";
                 else if(( loginEnterAs.equals("Manager")))
                     return "managerdashboard";
                 else if(( loginEnterAs.equals("Admin")))
@@ -188,7 +190,9 @@ public class login {
         }
         if(appr.equals("0"))
             return "0";
-        else 
+        else if(appr.equals("-1"))
+            return "-1";
+        else
             return "1";
         
     }

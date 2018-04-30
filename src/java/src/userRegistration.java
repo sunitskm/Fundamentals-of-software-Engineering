@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class userRegistration {
+public class userRegistration implements Serializable {
     
     private String userFirstName;
     private String userLastName;

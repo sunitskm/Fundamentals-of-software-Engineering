@@ -49,8 +49,15 @@ public class queryelections implements Serializable{
     }
     
     public String queryData(){
+        
+        try{
         int zip = Integer.parseInt(zipcode);
-        return dbData(zip);
+         return dbData(zip);
+        }
+        catch(Exception ex){
+            return "incorrectZip";
+        }
+       
     }
     public String dbData(int zipcode){
         ElectionDetails v;
