@@ -7,11 +7,13 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h ="http://xmlns.jcp.org/jsf/html">
-    <head>
+    <h:head>
         <title>Voting Failure</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <h:outputStylesheet library ="css" name="style2.css" />
+    </h:head>
+    <body style="background-color:#FFFFE9;">
         <div><h1>You are not Authorized to vote. You need to be authorized by a manager in order to vote.</h1></div>
         <h:form>
             <h:commandLink value="Go Back to Dashboard" action="userdashboard"/>

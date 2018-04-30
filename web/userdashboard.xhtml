@@ -8,9 +8,29 @@
 
 <h:head>
     <title>User Dashboard</title>
-    <h:outputStylesheet library ="css" name="style.css" />
+    <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
 </h:head>
 <h:body style="background-color:#FFFFE9;">
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="userdashboard.xhtml">Home</a></li>
+                    <li class="active"><a href="viewElections.xhtml">View Upcoming Elections</a></li>
+                    <li class="active"><a href="updateUserDetails.xhtml">Update Details</a></li>
+                </ul>
+                <div class="navbar-brand">
+                  <a href="login.xhtml">Logout</a>
+              </div>
+            </div>
+        </nav>
     <f:view>
         <p>Welcome User. </p>
         <h:form>
