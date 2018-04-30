@@ -56,7 +56,7 @@ public class submitvote implements Serializable{
             if(resultSet.getString(2).equals("United States President")) {
                 statement.close();
                 statement = connection.createStatement();
-                SQL = "UPDATE user_voting SET presidential='1'";
+                SQL = "UPDATE user_voting SET presidential='1' WHERE userid like('"+ uid +"')";
                 statement.executeUpdate(SQL);
             } else {
                 String[] splitRace = resultSet.getString(2).split(" ");

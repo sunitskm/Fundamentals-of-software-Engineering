@@ -23,7 +23,7 @@ public class startEndElection extends ElectionDBUtil implements Serializable {
     private List<ElectionDetails> ongoingList;
     private List<ElectionDetails> nonOngoingList;
     private CandDetails v;
-    private List<CandDetails> list = new ArrayList<>();
+    private List<CandDetails> list ;
     
     public startEndElection() { 
         updateLists();
@@ -46,8 +46,9 @@ public class startEndElection extends ElectionDBUtil implements Serializable {
             statement = connect().createStatement();
             SQL = "select id, votes from candidates where race like ('" + race + "')";
             resultSet = statement.executeQuery(SQL);
+            v = new CandDetails();
+            list = new ArrayList<>();
             while (resultSet.next()){
-                v = new CandDetails();
                 v.setId(resultSet.getInt(1));
                 v.setVotes(resultSet.getInt(2));
                 list.add(v);

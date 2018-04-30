@@ -20,8 +20,13 @@ and open the template in the editor.
                 <table>
                     <tr>
                         <td>Precinct Name </td> 
-                        <td><h:inputText id = "precinctName"  value="#{AddPrecinct.precinctName}" required ="true" label = "User Id" requiredMessage="User Id Required"/></td>
-                        <td colspan="3"><h:message for="userId" styleClass="error" /></td>
+                        <td><h:inputText id = "precinctName"  value="#{AddPrecinct.precinctName}" required ="true" label = "Precinct" requiredMessage="Precinct Required"/></td>
+                        <td colspan="3"><h:message for="precinct" styleClass="error" /></td>
+                    </tr>
+                     <tr>
+                        <td>Zip </td> 
+                        <td><h:inputText id = "zip"  value="#{AddPrecinct.zip}" required ="true" label = "Zip" requiredMessage="Zip Code Required"/></td>
+                        <td colspan="3"><h:message for="zip" styleClass="error" /></td>
                     </tr>
                     
                     <tr>

@@ -22,6 +22,7 @@ import javax.inject.Named;
 @SessionScoped
 public class AddPrecinct implements Serializable {
     private String precinctName;
+    private String zip;
     Connection connection;
     Statement statement;
     ResultSet resultSet;
@@ -38,6 +39,15 @@ public class AddPrecinct implements Serializable {
     public void setPrecinctName(String precinctName) {
         this.precinctName = precinctName;
     }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+    
     public String addPrecinct(){
         statement =null;
     connection = null;  
@@ -52,11 +62,12 @@ public class AddPrecinct implements Serializable {
                  
                  if(connection!=null){
                  
-                 SQL = " insert into precinct (precinct_name)"
-        + " values (?)";
+                 SQL = " insert into prec_zip (precinct_name,zip_code)"
+        + " values (?,?)";
 
                  PreparedStatement preparedStmt = connection.prepareStatement(SQL);  
                   preparedStmt.setString (1, precinctName);
+                  preparedStmt.setString (2, zip);
                  System.out.println("Connection is not null");
                  preparedStmt.execute();     
                  System.out.println(precinctName);
