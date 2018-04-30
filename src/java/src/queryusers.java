@@ -98,7 +98,8 @@ public class queryusers{
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from userreg where first_name like ('" + firstName +"') and last_name like ('" + lastName + "') and ssn like ('" + ssn + "') and zip like ('" + zipcode + "')";
             resultSet = statement.executeQuery(SQL);
