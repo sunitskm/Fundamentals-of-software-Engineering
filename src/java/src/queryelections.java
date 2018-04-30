@@ -49,8 +49,15 @@ public class queryelections implements Serializable{
     }
     
     public String queryData(){
+        
+        try{
         int zip = Integer.parseInt(zipcode);
-        return dbData(zip);
+         return dbData(zip);
+        }
+        catch(Exception ex){
+            return "incorrectZip";
+        }
+       
     }
     public String dbData(int zipcode){
         ElectionDetails v;
@@ -60,7 +67,7 @@ public class queryelections implements Serializable{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
-//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
             statement = connection.createStatement();      
             

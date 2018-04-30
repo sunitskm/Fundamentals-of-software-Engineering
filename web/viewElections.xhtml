@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>User Dashboard</title>
+    <h:outputStylesheet library ="css" name="style.css" />
+</h:head>
+<h:body style="background-color:#FFFFE9;">
+    <f:view>
+        <p>Type a zip code to view on going elections</p>
+        
+        <h:form>
+            <p>
+               <td>Zip Code</td> 
+               <td><h:inputText  id = "zipcode"  value="#{queryelections.zipcode}" styleClass="form-control" required = "true" label = "Zip Code" requiredMessage="Zip Code Required">
+                   <f:validateLength minimum ="5" maximum ="5"/>
+                </h:inputText></td>
+               <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
+               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
+            </p>
+            <p><h:link outcome="userdashboard" value="Back" /></p>
+        </h:form>
+    </f:view>
+</h:body>
+</html>
+
+

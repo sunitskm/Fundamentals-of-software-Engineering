@@ -25,7 +25,8 @@ public class ElectionDBUtil {
     String SQL;
 public Connection connect() throws SQLException, ClassNotFoundException{
 Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca?useSSL=false","root","");
+//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
         return connection;
 }

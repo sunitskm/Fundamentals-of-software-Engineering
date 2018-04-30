@@ -50,6 +50,28 @@ public class ApproveReject extends ElectionDBUtil{
                     e.printStackTrace();
                 }    
         }
+        
+        
+        try{
+             statement = connect().createStatement(); 
+        SQL = "Select email_id, first_name from userreg where userid like ('" + uid +"')";
+        resultSet = statement.executeQuery(SQL);
+        resultSet.next();
+        String email = resultSet.getString(1).toString();
+        String first_name = resultSet.getString(2).toString();
+        sendEmail.sendApprovedEmail(email,first_name);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+                try {
+                    connection.close();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }    
+        }
       
     }
     public void reject(String uid){
@@ -75,6 +97,50 @@ public class ApproveReject extends ElectionDBUtil{
                     e.printStackTrace();
                 }    
         }
-       
+        
+        
+        
+        try{
+             statement = connect().createStatement(); 
+        SQL = "Select email_id,first_name from userreg where userid like ('" + uid +"')";
+        resultSet = statement.executeQuery(SQL);
+        resultSet.next();
+        String email = resultSet.getString(1).toString();
+        String first_name = resultSet.getString(2).toString();
+        sendEmail.sendRejectedEmail(email,first_name);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+                try {
+                    connection.close();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }    
+        }
+        
+        
+       try{
+             statement = connect().createStatement(); 
+             System.out.println("User getting deleted " + uid);
+             
+        SQL = "DELETE from USERREG"+
+                " where userid like ('" + uid +"')";
+        statement.executeUpdate(SQL);
+        System.out.println("Deleted");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+                try {
+                    connection.close();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }    
+        }
     }
 }

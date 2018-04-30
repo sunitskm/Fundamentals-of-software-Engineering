@@ -23,7 +23,7 @@ public class CandDetails {
         System.out.println("In cand detail");
     }
 
-    public CandDetails(int id, String race, String canFirstName, String canLastName, String state, String city, String zip, int votes) {
+    public CandDetails(int id, String race, String canFirstName, String canLastName, String state, String city,String zip, int votes) {
         this.id = id;
         this.race = race;
         this.canFirstName = canFirstName;
@@ -33,16 +33,6 @@ public class CandDetails {
         this.zip = zip;
         this.votes = votes;
     }
-    
-    public CandDetails(int id, String race, String canFirstName, String canLastName, String canEmailId, String state, String city, String zip) {
-        this.id = id;
-        this.race = race;
-        this.canFirstName = canFirstName;
-        this.canLastName = canLastName;
-        this.state = state;
-        this.city = city;
-    }
-
     public int getId() {
         return id;
     }
@@ -93,7 +83,7 @@ public class CandDetails {
     }
     
     public String getCity() {
-        return state;
+        return city;
     }
 
     public void setCity(String city) {

@@ -38,15 +38,16 @@ public class AppRejectBean implements Serializable {
                 ex.printStackTrace();
             }
         }
+        ap.approve(uid);
         /********************************************************************/
         
-        ap.approve(uid);
-         return "listunapproveduser" ;
+        
+         return "approveUsers" ;
     }
      public String reject(String uid){
          System.out.println("Inside reject of app reject bean");
         ApproveReject ap = new ApproveReject();
         ap.reject(uid);
-         return "listunapproveduser" ;
+         return "approveUsers" ;
     }
 }

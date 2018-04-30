@@ -8,31 +8,48 @@
 
 <h:head>
     <title>User Dashboard</title>
-    <h:outputStylesheet library ="css" name="style.css" />
+    <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <h:outputStylesheet library ="css" name="style2.css" />
 </h:head>
 <h:body style="background-color:#FFFFE9;">
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Election Management System</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="userdashboard.xhtml">Home</a></li>
+                    <li><a href="viewElections.xhtml">View Upcoming Elections</a></li>
+                    <li><a href="updateUserDetails.xhtml">Update Details</a></li>
+                </ul>
+                <div class="navbar-brand">
+                  <a href="login.xhtml">Logout</a>
+              </div>
+            </div>
+        </nav>
     <f:view>
-        <h2>Work under progress</h2>
-        <p>Welcome User. </p>
-        <p>You have been approved by an admin.</p>
-        
+        <h1>Welcome #{login.loginId}.</h1>
         <h:form>
-            <p>
-               <td>Zip Code</td> 
-               <td><h:inputText id = "zipcode"  value="#{queryelections.zipcode}" label = "Zip Code"/></td>
-               <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
-               <h:commandLink value="View Upcoming Elections" action="#{queryelections.queryData()}" />
-            </p>
-            <br></br>
-             <p>
+
+            <h2>
                <h:commandLink value="Vote" action="#{queryvoteelections.queryData(login.getLoginId())}" />
-            </p>
-            <br></br>
-             <p>
-               <h:commandLink value="Update Address" action="updateUserDetails" />
-            </p>
+            </h2>
+
         </h:form>
     </f:view>
+    <div class="container-fluid" align="center">
+            <h:form>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            
+            <h:graphicImage 
+   value = "http://empowerla.org/wp-content/uploads/2015/12/Elections-Blog-Banner.png"/> 
+
+            </h:form>
+        </div>
 </h:body>
 </html>
 

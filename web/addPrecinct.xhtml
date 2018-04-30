@@ -25,11 +25,14 @@ and open the template in the editor.
                     </tr>
                     
                     <tr>
-                        <td><h:commandButton value ="Add Precinct" action ="#{AddPrecinct.addPrecinct}" /> </td>
+                        <td colspan="2"><h:commandButton value ="Add Precinct" action ="#{AddPrecinct.addPrecinct}" /> </td>
+                    </tr>
+                    <tr>
+                        <td> <p><h:link outcome="admindashboard" value="Back" /></p></td>
                     </tr>
                 </table>
             </h:form>
         </div>
-        <p><h:link outcome="admindashboard" value="Back" /></p>
+       
     </h:body>
 </html>

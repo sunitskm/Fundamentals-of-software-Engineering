@@ -37,14 +37,6 @@ public class queryelectionsadmin implements Serializable{
     String cands;
 
     public List getList(){
-        return list;
-    }
-    
-    public String queryData(){
-        return dbData();
-    }
-    
-    public String dbData(){
         ElectionDetails v;
         CandDetails c; 
         list = new ArrayList<>();
@@ -101,7 +93,7 @@ public class queryelectionsadmin implements Serializable{
                     e.printStackTrace();
                 }    
             }
-    return "queryelectionsadmin";
+    return list;
     }
 }
     

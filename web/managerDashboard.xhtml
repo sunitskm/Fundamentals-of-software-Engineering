@@ -23,6 +23,8 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="managerDashboard.xhtml">Home</a></li>
+                    <li><a href="queryusersmanager.xhtml">Search User</a></li>
+                    <li><a href="queryelectionsmanager.xhtml">View Elections</a></li>
                 </ul>
             </div>
         </nav>
@@ -31,18 +33,14 @@
                 <h2>Manager Dashboard</h2>
             </div>
         </div>
-        <div id ="container"> 
-            <div id="content">  
-                <h:form>
-                    <h:commandLink value="Search User" action="queryusersmanager"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink value="View Election" action="#{queryelectionsmanager.queryData()}"/>
-                </h:form>
-                <h:form>
-                    <h:commandLink value="Search Candidates" action="queryusers"/>
-                </h:form>
-            </div>
+        <div class="container-fluid" align="center">
+            <h:form>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            
+            <h:graphicImage 
+   value = "http://empowerla.org/wp-content/uploads/2015/12/Elections-Blog-Banner.png"/> 
+
+            </h:form>
         </div>
     </h:body>
 </html>
