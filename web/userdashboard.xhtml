@@ -19,12 +19,12 @@
     <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.xhtml">Election Management System</a>
+                    <a class="navbar-brand">Election Management System</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="userdashboard.xhtml">Home</a></li>
-                    <li class="active"><a href="viewElections.xhtml">View Upcoming Elections</a></li>
-                    <li class="active"><a href="updateUserDetails.xhtml">Update Details</a></li>
+                    <li><a href="viewElections.xhtml">View Upcoming Elections</a></li>
+                    <li><a href="updateUserDetails.xhtml">Update Details</a></li>
                 </ul>
                 <div class="navbar-brand">
                   <a href="login.xhtml">Logout</a>
@@ -32,20 +32,24 @@
             </div>
         </nav>
     <f:view>
-        <p>Welcome User. </p>
+        <h1>Welcome #{login.loginId}.</h1>
         <h:form>
-            <p> 
-               <h:link outcome="viewElections" value="View Upcoming Elections" />
-            </p>
-             <p>
+
+            <h2>
                <h:commandLink value="Vote" action="#{queryvoteelections.queryData(login.getLoginId())}" />
-            </p>
-            <br></br>
-             <p>
-               <h:commandLink value="Update Address" action="updateUserDetails" />
-            </p>
+            </h2>
+
         </h:form>
     </f:view>
+    <div class="container-fluid" align="center">
+            <h:form>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            
+            <h:graphicImage 
+   value = "http://empowerla.org/wp-content/uploads/2015/12/Elections-Blog-Banner.png"/> 
+
+            </h:form>
+        </div>
 </h:body>
 </html>
 

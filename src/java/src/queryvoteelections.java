@@ -52,6 +52,7 @@ public class queryvoteelections implements Serializable{
         try {
             System.out.println("in queryData from vote link in userdash");
             Class.forName("com.mysql.jdbc.Driver");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
             statement = connection.createStatement();
             SQL = "SELECT * FROM user_voting WHERE userid like ('"+ uid +"')";
@@ -92,8 +93,8 @@ public class queryvoteelections implements Serializable{
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
-//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
             statement = connection.createStatement(); 
             
             SQL = "select zip from userreg where userid like ('"+ uid +"')";
