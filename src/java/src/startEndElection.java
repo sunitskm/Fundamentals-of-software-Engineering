@@ -33,7 +33,7 @@ public class startEndElection extends ElectionDBUtil implements Serializable {
         System.out.println("election id: " + eid);
         try {
             statement = connect().createStatement();
-            SQL = "UPDATE election SET is_ongoing='0' WHERE id like ('"+ eid +"')";
+            SQL = "UPDATE election SET is_ongoing='-1' WHERE id like ('"+ eid +"')";
             statement.executeUpdate(SQL);
             updateLists();
             
@@ -42,13 +42,15 @@ public class startEndElection extends ElectionDBUtil implements Serializable {
             resultSet = statement.executeQuery(SQL);
             resultSet.next();
             String race = resultSet.getString(1);
+            System.out.println("Race is "+race);
             
             statement = connect().createStatement();
             SQL = "select id, votes from candidates where race like ('" + race + "')";
             resultSet = statement.executeQuery(SQL);
-            v = new CandDetails();
+           
             list = new ArrayList<>();
             while (resultSet.next()){
+                 v = new CandDetails();
                 v.setId(resultSet.getInt(1));
                 v.setVotes(resultSet.getInt(2));
                 list.add(v);

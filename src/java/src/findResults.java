@@ -64,7 +64,7 @@ public class findResults implements Serializable{
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
             statement = connection.createStatement();      
             
-            SQL = "select * from election where winner_id not like 0 and is_ongoing like 0";
+            SQL = "select * from election where winner_id not like 0 and is_ongoing like -1";
             resultSet = statement.executeQuery(SQL);
 
             while (resultSet.next()) {
