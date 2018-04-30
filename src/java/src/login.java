@@ -134,7 +134,7 @@ public class login {
             String saltedPassword = SALT + loginPassword;
 		String hashedPassword = generateHash(saltedPassword);
                 System.out.println("Hashed Password" + hashedPassword);
-                loginPassword = hashedPassword;
+                //loginPassword = hashedPassword;
   
             if((loginPassword.equals(dbLoginPassword)) && (loginEnterAs.equals(dbLoginEnterAs)) ){
                System.out.println("Password is correct");

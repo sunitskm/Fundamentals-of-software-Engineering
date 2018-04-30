@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang ="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h ="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Update Election</title>
+        <style>
+            .error {color:red}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color:#FFFFE9;">
+        <div>
+            <h1>Enter the ID of the election you wish to update</h1>
+            <p>Enter any details that need to be changed; leave unchanged details blank</p>
+        </div>
+        <div>
+            <h:form>
+                Election Id <h:inputText id="id" value="#{updateElection.id}" required="true" label="id" requiredMessage="Election Id" />
+                <h:message for="id" styleClass="error" />
+                <br /><br />
+                
+                Precinct <h:inputText id="precinct" value="#{updateElection.precinct}" label="precinct"/>
+                <h:message for="precinct" styleClass="error" />
+                <br /><br />
+                
+                Race <h:inputText id="race" value="#{updateElection.race}" label="race"/>
+                <h:message for="race" styleClass="error" />
+                <br /><br />
+                
+                Date <h:inputText id = "date" value="#{updateElection.date}" label = "date"/>
+                <h:message for="date" styleClass="error" />
+                <br /><br />
+
+                <h:commandButton value ="Add Election" onclick ="if (!confirm('Are you sure you want to update these election details?')) return false"
+                                 action ="#{updateElection.update()}" /> 
+            
+              
+                
+               
+            </h:form>
+        </div>
+        
+        <div>
+            <h:form>
+            <p>
+               <p><h:link outcome="admindashboard" value="Back" /></p>
+            </p>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
