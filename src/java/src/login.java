@@ -100,8 +100,8 @@ public class login {
     try{
         //System.out.println("Attermpting connection to database");
         Class.forName("com.mysql.jdbc.Driver");
-        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
 //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sca","root","");
         statement = connection.createStatement(); 
         SQL = "Select * from USER01 where userid like ('" + loginId +"')";
@@ -177,8 +177,8 @@ public class login {
         try{
             //System.out.println("Attermpting connection to database");
             Class.forName("com.mysql.jdbc.Driver");
-           // connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","root","b2xpdmVyMDU=");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/election_management?useSSL=false","demo","demo");
             statement = connection.createStatement(); 
             SQL = "Select * from USERREG where userid like ('" + loginId +"')";
             resultSet = statement.executeQuery(SQL);

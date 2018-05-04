@@ -7,7 +7,7 @@
     xmlns:f="http://java.sun.com/jsf/core">
     
     <h:head>
-        <title>Demographics Search</title>
+        <title>Geography Search</title>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
@@ -16,24 +16,10 @@
         <h:outputStylesheet library ="css" name="style2.css" />
     </h:head>
     <h:body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Election Management System</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="userdashboard.xhtml">Home</a></li>
-                    <li class="active"><a href="demographicSearch.xhtml">Demographics Search</a></li>
-                    <li><a href="#">Vote</a></li>
-                </ul>
-                <div class="navbar-brand">
-                    <a href="login.xhtml">Logout</a>
-                </div>
-            </div>
-        </nav>
+
         <div id="wrapper">
             <div id="header">
-                <h2>Demographics Search</h2>
+                <h2>Geography Search</h2>
             </div>
         </div>
         <div id ="container"> 
@@ -62,5 +48,6 @@
                 </h:form>
             </div>
         </div>
+        <h:link  outcome="admindashboard" value="Back" />
     </h:body>
 </html>
