@@ -37,26 +37,26 @@
             <table>
                 <tr>
                     <td>First Name</td> 
-                    <td><h:inputText id = "firstName"  value="#{queryusers.firstName}" required ="true" label = "First Name" requiredMessage="First Name Required"/></td>
+                    <td><h:inputText id = "firstName"  value="#{queryUsers.firstName}" required ="true" label = "First Name" requiredMessage="First Name Required"/></td>
                     <td colspan="3"><h:message for="firstName" styleClass="error" /></td>
                 </tr>
                 <tr>
                     <td>Last Name</td>
-                    <td><h:inputText id = "lastName" value="#{queryusers.lastName}" required = "false" label = "Last Name"/></td>
+                    <td><h:inputText id = "lastName" value="#{queryUsers.lastName}" required = "false" label = "Last Name"/></td>
                     <td colspan = "3"><h:message for="lastName" styleClass="error" /></td>
                 </tr>
                 <tr>
                     <td>SSN</td> 
-                    <td><h:inputText id = "ssn"  value="#{queryusers.ssn}" required ="true" label = "ssn" requiredMessage="SSN Required"/></td>
+                    <td><h:inputText id = "ssn"  value="#{queryUsers.ssn}" required ="true" label = "ssn" requiredMessage="SSN Required"/></td>
                     <td colspan="3"><h:message for="ssn" styleClass="error" /></td>
                 </tr>
                 <tr>
                     <td>Zip Code</td> 
-                    <td><h:inputText id = "zipcode"  value="#{queryusers.zipcode}" required ="true" label = "Zip Code" requiredMessage="Zip Code Required"/></td>
+                    <td><h:inputText id = "zipcode"  value="#{queryUsers.zipcode}" required ="true" label = "Zip Code" requiredMessage="Zip Code Required"/></td>
                     <td colspan="3"><h:message for="zipcode" styleClass="error" /></td>
                 </tr>
                 <tr>
-                    <td><h:commandButton value ="Search" action="#{queryusers.queryData()}" /> </td>
+                    <td><h:commandButton value ="Search" action="#{queryUsers.queryData()}" /> </td>
                 </tr>
             </table>
         </h:form>

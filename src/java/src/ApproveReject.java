@@ -59,7 +59,7 @@ public class ApproveReject extends ElectionDBUtil{
         resultSet.next();
         String email = resultSet.getString(1).toString();
         String first_name = resultSet.getString(2).toString();
-        sendEmail.sendApprovedEmail(email,first_name);
+        SendEmail.sendApprovedEmail(email,first_name);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -107,7 +107,7 @@ public class ApproveReject extends ElectionDBUtil{
         resultSet.next();
         String email = resultSet.getString(1).toString();
         String first_name = resultSet.getString(2).toString();
-        sendEmail.sendRejectedEmail(email,first_name);
+        SendEmail.sendRejectedEmail(email,first_name);
         }
         catch(Exception e){
             e.printStackTrace();

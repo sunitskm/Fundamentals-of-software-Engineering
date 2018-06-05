@@ -51,7 +51,7 @@ public class approveManagerTest extends ElectionDBUtil{
     
     @BeforeClass
     public static void setUpClass() {
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginId("admin");
         
     }
@@ -88,7 +88,7 @@ public class approveManagerTest extends ElectionDBUtil{
                 ex.printStackTrace();
             }
         }
-        checkUserVoting instance = new checkUserVoting();
+        CheckUserVoting instance = new CheckUserVoting();
         instance.approveVoter(uid);
         
         

@@ -43,7 +43,7 @@ public class ApproveTest extends ElectionDBUtil {
     
     @BeforeClass
     public static void setUpClass() {
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginId("admin");
         
     }

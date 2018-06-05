@@ -31,7 +31,7 @@ public class loginTest {
     
     @BeforeClass
     public static void setUpClass() {
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginId("castned");
         
     }
@@ -54,7 +54,7 @@ public class loginTest {
     @Test
     public void testGetEnterAsOptions() {
         System.out.println("getEnterAsOptions");
-        login instance = new login();
+        Login instance = new Login();
         List<String> expResult = new ArrayList<>();//null;
         expResult.add("Admin");
         expResult.add("Manager");
@@ -70,7 +70,7 @@ public class loginTest {
     @Test
     public void testGetLoginId() {
         System.out.println("getLoginId");
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginId("castned");
         String expResult = "castned";
         String result = instance.getLoginId();
@@ -84,7 +84,7 @@ public class loginTest {
     public void testSetLoginId() {
         System.out.println("setLoginId");
         String loginId = "castned";
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginId(loginId);
         assertEquals(instance.getLoginId(),loginId);
     }
@@ -95,7 +95,7 @@ public class loginTest {
     @Test
     public void testGetLoginPassword() {
         System.out.println("getLoginPassword");
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginPassword("password");
         String expResult = "password";
         String result = instance.getLoginPassword();
@@ -109,7 +109,7 @@ public class loginTest {
     public void testSetLoginPassword() {
         System.out.println("setLoginPassword");
         String loginPassword = "password";
-        login instance = new login();
+        Login instance = new Login();
         instance.setLoginPassword(loginPassword);
         assertEquals(loginPassword,instance.getLoginPassword());
     }
@@ -120,7 +120,7 @@ public class loginTest {
     @Test
     public void testGetLoginEnterAs() {
         System.out.println("getLoginEnterAs");
-        login instance = new login();
+        Login instance = new Login();
         String expResult = null;
         String result = instance.getLoginEnterAs();
         assertEquals(expResult, result);
@@ -277,7 +277,7 @@ public class loginTest {
     public void testDbData() {
         System.out.println("dbData");
         String loginId = "";
-        login instance = new login();
+        Login instance = new Login();
         instance.dbData(loginId);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -289,7 +289,7 @@ public class loginTest {
     @Test
     public void testCheckValidUser() {
         System.out.println("checkValidUser");
-        login instance = new login();
+        Login instance = new Login();
         String expResult = "userdashboard";
         String result = instance.checkValidUser();
         assertEquals(expResult, result);
@@ -301,7 +301,7 @@ public class loginTest {
     @Test
     public void testLogout() {
         System.out.println("logout");
-        login instance = new login();
+        Login instance = new Login();
         String expResult = "login";
         String result = instance.logout();
         assertEquals(expResult, result);
@@ -337,7 +337,7 @@ public class loginTest {
         String SALT = "my-secret-text";
         String input = SALT + "castned"; // password for castned is castned
         String expResult = "59e5543f7934674901af816b21a410da8636fd2b";
-        String result = login.generateHash(input);
+        String result = Login.generateHash(input);
         assertEquals(expResult, result);
     }
     

@@ -20,7 +20,7 @@
     <div id ="container"> 
         <div id="content">  
         <h:form>
-       <h:dataTable value ="#{queryusersmanager.list}" var ="s"
+       <h:dataTable value ="#{queryUsersManager.list}" var ="s"
                     styleClass = "demo-table"
                     headerClass = "demo-table-header"
                     rowClasses="demo-table-odd-row,demo-table-even-row">
@@ -67,13 +67,13 @@
            <h:column>
                <f:facet name="header">Authorize Voter</f:facet>
                <c:choose>
-                   <c:when test="#{checkUserVoting.isApprovedToVote(queryusersmanager.uid)}">
+                   <c:when test="#{checkUserVoting.isApprovedToVote(queryUsersManager.uid)}">
                        Authorized
                    </c:when>
                    <c:otherwise>
                         <h:commandLink value ="Authorize" 
                            onclick ="if (!confirm('Are you sure you want to approve the user?')) return false"
-                           action ="#{checkUserVoting.approveVoter(queryusersmanager.uid)}" />
+                           action ="#{checkUserVoting.approveVoter(queryUsersManager.uid)}" />
                    </c:otherwise>
                </c:choose>
            </h:column>
