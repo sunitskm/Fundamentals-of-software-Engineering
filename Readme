@@ -1,0 +1,4 @@
+This is an election management system. One may login as a user, admin or manager. 
+A user can cast vote, view the elections taking place in his/her precinct and view the results
+An admin can have many functionalities: creating an election, starting and ending an election, approving or rejecting user being among them
+A manager can check if the user belongs to the precinct in which he/she wants to vote
